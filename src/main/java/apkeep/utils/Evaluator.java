@@ -59,8 +59,11 @@ public class Evaluator {
 	
 	// nanotime
 	long start_time;
+	long mid_time;
 	long end_time;
 	long update_time;
+	long ppm_time;
+	long veri_time;
 	long total_time;
 	
 	// bytes
@@ -104,10 +107,16 @@ public class Evaluator {
 		start_time = System.nanoTime();
 	}
 	
+	public void midUpdate() {
+		mid_time = System.nanoTime();
+	}
+	
 	public void endUpdate() {
 		end_time = System.nanoTime();
 		update_time = end_time - start_time;
 		total_time += update_time;
+		ppm_time += mid_time - start_time;
+		veri_time += end_time - mid_time;
 		if (update_time/1000000.0 < Parameters.FAST_UPDATE_THRESHOLD) fast_update ++;
 		/*
 		 * Periodical garbage collection for BDD and JVM
@@ -137,6 +146,8 @@ public class Evaluator {
 		blackhole_num = 0;
 		
 		total_time = 0;
+		ppm_time = 0;
+		veri_time = 0;
 		
 		File file = new File(output_file);
 		try {
@@ -162,7 +173,10 @@ public class Evaluator {
 		}
 		if (update_num % Parameters.WRITE_RESULT_INTERVAL == 0) {
 			try {
-				output_writer.write(update_num + " " + ap_num + " " + update_time/1000+"\n");
+				output_writer.write(update_num + " " + ap_num + " " + update_time/1000
+						+ " " + (mid_time - start_time)/1000
+						+ " " + (end_time - mid_time)/1000
+						+"\n");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -178,6 +192,8 @@ public class Evaluator {
 		System.out.println("The " + name + " dataset");
 		System.out.println("Number of updates: " + update_num);
 		System.out.println("Total time: " + total_time/1000000 + "ms");
+		System.out.println("Update PPM time: " + ppm_time/1000000 + "ms");
+		System.out.println("Check property time: " + veri_time/1000000 + "ms");
 		System.out.println("Number of APs after insert: " + ap_insert_num);
 		System.out.println("Number of APs after update: " + ap_end_num);
 		

@@ -54,11 +54,11 @@ public class Parameters {
 	public static int TOTAL_AP_THRESHOLD = 500;
 	public static int LOW_MERGEABLE_AP_THRESHOLD = 10;
 	public static int HIGH_MERGEABLE_AP_THRESHOLD = 50;
-	public static final int FAST_UPDATE_THRESHOLD = 250;
+	public static final double FAST_UPDATE_THRESHOLD = 0.25;
 
-//	public static int PRINT_INTERVAL = 1000000;
-	public static int PRINT_RESULT_INTERVAL = 10000;
-//	public static int PRINT_INTERVAL = 1;
+	public static int PRINT_RESULT_INTERVAL = 1000000;
+//	public static int PRINT_RESULT_INTERVAL = 10000;
+//	public static int PRINT_RESULT_INTERVAL = 1;
 	public static int WRITE_RESULT_INTERVAL = 1;
 
 //	public static HashSet<Property> PROPERTIES_TO_CHECK = new HashSet<Property>(){{add(Property.LOOP);add(Property.BLACKHOLE);}};

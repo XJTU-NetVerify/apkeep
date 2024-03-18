@@ -89,6 +89,7 @@ public class ForwardingGraph {
 	public HashSet<Integer> forwardAPs(PositionTuple cur_hop, HashSet<Integer> aps) {
 		Element e = elements.get(cur_hop.getDeviceName());
 		if(e == null) return new HashSet<>(aps);
-		return e.forwardAPs(cur_hop.getPortName(), aps);
+		if(e instanceof NATElement) return e.forwardAPs(cur_hop.getPortName(), aps);
+		return new HashSet<>(port_aps.get(cur_hop));
 	}
 }

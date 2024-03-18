@@ -394,7 +394,12 @@ public abstract class Element {
 		if(new_aps.remove(BDDACLWrapper.BDDTrue)) {
 			return new HashSet<>(getPortAPs(port));
 		}
-		new_aps.retainAll(getPortAPs(port));
+//		System.out.println("*******");
+//		System.out.println(name+" "+port);
+//		System.out.println(port_aps_raw.keySet());
+//		System.out.println(new_aps);
+//		System.out.println(getPortAPs(port));
+//		new_aps.retainAll(getPortAPs(port));
 		return new_aps;
 	}
 

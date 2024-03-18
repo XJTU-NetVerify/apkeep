@@ -203,6 +203,7 @@ public class Network {
 	private void addFWDElement(Set<String> devices) {
 		if(devices == null) return;
 		for(String element : devices) {
+//			System.out.println(element);
 			if(elements.containsKey(element)) continue;
 			Element e = new ForwardElement(element);
 			elements.put(element, e);
@@ -270,7 +271,7 @@ public class Network {
 		return device;
 	}
 	
-	private String getForwardElementFromACL(String acl_name) {
+	public String getForwardElementFromACL(String acl_name) {
 		String[] tokens = acl_name.split("_");
 		if (name.equals("stanford")) {
 			return tokens[0]+"_"+tokens[1];
@@ -422,6 +423,7 @@ public class Network {
 		eva.startUpdate();
 		Set<Integer> moved_aps = updateRule(op, type, device, rule);
 		if (moved_aps == null) return;
+		eva.midUpdate();
 		
 		/*
 		 * Verifying properties

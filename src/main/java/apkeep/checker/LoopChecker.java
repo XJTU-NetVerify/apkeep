@@ -270,7 +270,7 @@ public class LoopChecker extends Checker {
 			// get element by name
 			String next_node_name = connected_pt.getDeviceName();
 			if(!net.isACLNode(next_node_name)) {
-				net.getElement(next_node_name);
+				next_element = net.getElement(next_node_name);
 			}
 			else {
 				next_element = net.getACLElement(next_node_name);
