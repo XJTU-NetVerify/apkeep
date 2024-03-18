@@ -60,7 +60,7 @@ public class TrieTree {
 		return root.insert(prefixbin);
 	}
 
-	public TrieTreeNode search(ForwardingRule rule) {
+	public TrieTreeNode search(ForwardingRule rule) throws Exception {
 		long prefix = rule.getDstIP();
 		int prefixlen = rule.getMaskLen();
 		int[] prefixbin = PrefixLongToBin(prefix, prefixlen);

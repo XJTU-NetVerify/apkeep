@@ -47,12 +47,15 @@ import java.util.Set;
 import apkeep.elements.ACLElement;
 import apkeep.elements.Element;
 import apkeep.elements.NATElement;
+import apkeep.exception.APInconsistentException;
+import apkeep.exception.APNotFoundException;
+import apkeep.exception.APSetNotFoundException;
+import apkeep.exception.MergeSelfException;
 import apkeep.utils.Logger;
 import apkeep.utils.Parameters;
 import common.ACLRule;
 import common.BDDACLWrapper;
 import common.PositionTuple;
-import common.Utility;
 import jdd.bdd.BDD;
 
 /**
@@ -135,8 +138,10 @@ public class APKeeper {
 		return AP.size();
 	}
 	
-	public Set<PositionTuple> getHoldPorts(int ap) {
-		if(!AP.contains(ap)) Logger.logError("Error in finding edges for ap " + ap);
+	public Set<PositionTuple> getHoldPorts(int ap) throws Exception {
+		if(!AP.contains(ap)) {
+			throw new APNotFoundException(ap);
+		}
 		
 		Set<PositionTuple> pts = new HashSet<>();
 		for(int index=0; index < ap_ports.get(ap).size();index++) {
@@ -176,8 +181,9 @@ public class APKeeper {
 	
 	/**
 	 * add one predicate and recompute APs
+	 * @throws Exception 
 	 */
-	public void addPredicate (int pred){
+	public void addPredicate (int pred) throws Exception{
 
 		BDD thebdd = bddengine.getBDD();
 
@@ -220,10 +226,11 @@ public class APKeeper {
 		return bddengine.ConvertACLRule(rule);
 	}
 	
-	public void updateSplitAP(int origin, int parta, int partb) {
+	@SuppressWarnings("unchecked")
+	public void updateSplitAP(int origin, int parta, int partb) throws Exception {
 		Logger.logDebugInfo("Splitting "+origin+" -> " +parta+" + "+partb);
 		if(!AP.contains(origin)) {
-			Logger.logError("Error: origin AP " + origin + " not found");
+			throw new APNotFoundException(origin);
 		}
 
 		AP.remove(origin);
@@ -256,17 +263,16 @@ public class APKeeper {
 		bddengine.deref(origin);
 		
 		if(!ap_ports.keySet().equals(AP)) {
-			Logger.logError("AP Not equalvalent!");
+			throw new APInconsistentException("merge");
 		}
 	}
 	
-	public void updateTransferAP(PositionTuple pt1, PositionTuple pt2, int ap) {
+	public void updateTransferAP(PositionTuple pt1, PositionTuple pt2, int ap) throws APNotFoundException {
 		if(!ap_ports.containsKey(ap)){
-			Logger.logError("Error: AP edge reference not found " + ap);
+			throw new APNotFoundException(ap);
 		}
 		
 		ArrayList<String> ports = ap_ports.get(ap);
-//		System.out.println(ports);
 
 		if (!MergeAP) {
 			ports.set(element_ids.get(pt2.getDeviceName()), pt2.getPortName());
@@ -306,21 +312,6 @@ public class APKeeper {
 				ports_to_merge.add(ports);
 			}
 		}
-//		System.out.println("Transfer "+ap+ ": "+pt1+" -> "+pt2);
-//		for(ArrayList<String> ports1 : ports_to_merge) {
-//			Set<Integer> aps = ports_aps.get(ports1);
-//			System.out.println(ports1+":");
-//			System.out.println(aps);
-//			if(aps.size() < 2) Logger.logError("Find Singleton!");
-//		}
-//		if(!ports_aps.keySet().containsAll(ports_to_merge)) {
-//			System.out.println("---------");
-//			for(ArrayList<String> ports1 : ports_aps.keySet()) System.out.println(ports1);
-//			System.out.println("---------");
-//			for(ArrayList<String> ports1 : ports_to_merge) System.out.println(ports1);
-//			System.out.println("---------");
-//			Logger.logError("Ports Not equalvalent!");
-//		}
 	}
 	
 	public boolean checkRWMergable(int ap1, int ap2) {
@@ -348,7 +339,7 @@ public class APKeeper {
 		return false;
 	}
 	
-	public int tryMergeAP(int ap) {
+	public int tryMergeAP(int ap) throws Exception {
 		if (!MergeAP) return ap;
 		
 		ArrayList<String> ports = ap_ports.get(ap);
@@ -365,12 +356,14 @@ public class APKeeper {
 		return ap;
 	}
 	
-	public void tryMergeAPBatch() {
+	public void tryMergeAPBatch() throws Exception {
 		if (ports_to_merge.isEmpty()) return;
 		
 		for (ArrayList<String> ports : new ArrayList<>(ports_to_merge)) {
 			HashSet<Integer> aps = ports_aps.get(ports);
-			if(aps.size()<2) Logger.logError("Merge singleton!");
+			if(aps.size()<2) {
+				throw new MergeSelfException(aps.toArray()[0]);
+			}
 			if (!checkRWMergable(aps)) continue;
 			
 			int[] apsarr = aps.stream().mapToInt(Number::intValue).toArray();
@@ -381,10 +374,13 @@ public class APKeeper {
 		}
 	}
 	
-	public void updateMergeAP(int ap1, int ap2, int merged_ap) {
+	public void updateMergeAP(int ap1, int ap2, int merged_ap) throws Exception {
 		Logger.logDebugInfo("Merging "+ap1+" + "+ap2+" -> " +merged_ap);
-		if(!AP.contains(ap1) || !AP.contains(ap2)) {
-			Logger.logError("Error: origin APs " + ap1 + " or "+ ap2 + " not found");
+		if(!AP.contains(ap1)) {
+			throw new APNotFoundException(ap1);
+		}
+		if(!AP.contains(ap2)) {
+			throw new APNotFoundException(ap2);
 		}
 		AP.remove(ap1);
 		AP.remove(ap2);
@@ -408,15 +404,15 @@ public class APKeeper {
 		bddengine.deref(ap2);
 		
 		if(!ap_ports.keySet().equals(AP)) {
-			Logger.logError("Not equalvalent!");
+			throw new APInconsistentException("merge");
 		}
 	}
 	
-	public void updateMergeAPBatch (int merged_ap, HashSet<Integer> aps)
+	public void updateMergeAPBatch (int merged_ap, HashSet<Integer> aps) throws Exception
 	{
 		Logger.logDebugInfo("Merging "+aps+" -> " +merged_ap);
 		if(!AP.containsAll(aps)) {
-			Logger.logError("Error: origin APs " + aps + " not found");
+			throw new APSetNotFoundException(aps);
 		}
 		
 		AP.removeAll(aps);
@@ -437,7 +433,7 @@ public class APKeeper {
 		aps.add(merged_ap);
 		
 		if(!ap_ports.keySet().equals(AP)) {
-			Logger.logError("Not equalvalent!");
+			throw new APInconsistentException("merge");
 		}
 	}
 }

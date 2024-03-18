@@ -39,11 +39,8 @@
 package apkeep.utils;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-
-import apkeep.core.APKeeper;
-import apkeep.rules.ForwardingRule;
+import apkeep.exception.LimitExceededException;
 import apkeep.rules.Rule;
 
 public class TrieTreeNode {
@@ -83,10 +80,10 @@ public class TrieTreeNode {
 		return children[index].insert(prefixbin);
 	}
 	
-	public TrieTreeNode search(int[] prefixbin) {
+	public TrieTreeNode search(int[] prefixbin) throws Exception {
 		// should not reach here
 		if (node_level > 31) {
-			Logger.logError("Error reaching here");
+			throw new LimitExceededException(node_level, 31);
 		}
 		
 		int index = prefixbin[node_level];
@@ -108,7 +105,7 @@ public class TrieTreeNode {
 		}
 		
 		if (parent == null) {
-			Logger.logError("Error finding descendant");
+			throw new NullPointerException();
 		}
 		
 		if (parent.children[0] != null) {
@@ -149,7 +146,7 @@ public class TrieTreeNode {
 		
 		// should not reach here
 		if (parent == null) {
-			Logger.logError("Error: parent not initialized");
+			throw new NullPointerException();
 		}
 		
 		// search for all ancestors recursively

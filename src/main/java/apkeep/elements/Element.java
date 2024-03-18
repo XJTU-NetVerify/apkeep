@@ -49,6 +49,9 @@ import java.util.Set;
 
 import apkeep.core.APKeeper;
 import apkeep.core.ChangeItem;
+import apkeep.exception.APNotFoundException;
+import apkeep.exception.APSetNotFoundException;
+import apkeep.exception.BDDNotFalseException;
 import apkeep.rules.Rule;
 import apkeep.utils.Logger;
 import common.BDDACLWrapper;
@@ -80,8 +83,8 @@ public abstract class Element {
 	
 	public abstract void initialize();
 	public abstract Rule encodeOneRule(String rule);
-	public abstract List<ChangeItem> insertOneRule(Rule rule);
-	public abstract List<ChangeItem> removeOneRule(Rule rule);
+	public abstract List<ChangeItem> insertOneRule(Rule rule) throws Exception;
+	public abstract List<ChangeItem> removeOneRule(Rule rule) throws Exception;
 
 	protected abstract int tryMergeIfNATElement(int delta);
 	
@@ -89,7 +92,7 @@ public abstract class Element {
 		return name;
 	}
 	
-	protected List<ChangeItem> identifyChangesInsert(Rule rule, ArrayList<Rule> affected_rules) {
+	protected List<ChangeItem> identifyChangesInsert(Rule rule, ArrayList<Rule> affected_rules) throws Exception {
 		// set bdd for the inserted rule
 		List<ChangeItem> change_set = new ArrayList<>();
 		
@@ -129,14 +132,14 @@ public abstract class Element {
 			}
 		}
 		if (bdd_to_change != BDDACLWrapper.BDDFalse) {
-			Logger.logError("Hit BDD not completely transfered");
+			throw new BDDNotFalseException(bdd_to_change);
 		}
 		
 		rule.setHit_bdd(hit_bdd);
 		
 		return change_set;
 	}
-	protected List<ChangeItem> identifyChangesInsert(Rule rule, LinkedList<Rule> affected_rules) {
+	protected List<ChangeItem> identifyChangesInsert(Rule rule, LinkedList<Rule> affected_rules) throws Exception {
 		// set bdd for the inserted rule
 		List<ChangeItem> change_set = new ArrayList<>();
 		
@@ -192,7 +195,7 @@ public abstract class Element {
 		}
 		
 		if (bdd_to_change != BDDACLWrapper.BDDFalse) {
-			Logger.logError("Hit BDD not completely transfered");
+			throw new BDDNotFalseException(bdd_to_change);
 		}
 		
 		rule.setHit_bdd(hit_bdd);
@@ -201,7 +204,7 @@ public abstract class Element {
 		return change_set;
 	}
 	
-	protected List<ChangeItem> identifyChangesRemove(Rule rule, ArrayList<Rule> affected_rules){
+	protected List<ChangeItem> identifyChangesRemove(Rule rule, ArrayList<Rule> affected_rules) throws Exception{
 		ArrayList<ChangeItem> change_set = new ArrayList<ChangeItem>();
 		affected_rules.remove(rule);
 		
@@ -225,14 +228,14 @@ public abstract class Element {
 		}
 	
 		if (hit_bdd != BDDACLWrapper.BDDFalse) {
-    		Logger.logError("Hit BDD not completely deleted");
+			throw new BDDNotFalseException(hit_bdd);
 		}
 		
 		bdd.deref(rule.getHit_bdd());
 		return change_set;
 	}
 	
-	protected List<ChangeItem> identifyChangesRemove(Rule rule, LinkedList<Rule> affected_rules) {
+	protected List<ChangeItem> identifyChangesRemove(Rule rule, LinkedList<Rule> affected_rules) throws Exception {
 		List<ChangeItem> change_set = new ArrayList<ChangeItem>();
 		int hit_bdd = bdd.ref(rule.getHit_bdd());
 		
@@ -255,14 +258,14 @@ public abstract class Element {
 		}
 		
 		if (hit_bdd != BDDACLWrapper.BDDFalse) {
-    		Logger.logError("Hit BDD not completely deleted");
+			throw new BDDNotFalseException(hit_bdd);
 		}
 		
 		bdd.deref(rule.getHit_bdd());
 		return change_set;
 	}
 
-	public Set<Integer> updatePortPredicateMap(List<ChangeItem> change_set){
+	public Set<Integer> updatePortPredicateMap(List<ChangeItem> change_set) throws Exception{
 		HashSet<Integer> moved_aps = new HashSet<Integer>();
 		if(change_set.isEmpty()) return moved_aps;
 		
@@ -321,7 +324,7 @@ public abstract class Element {
 			apset = null;
 			bdd.getBDD().deref(delta);
 			if(delta != BDDACLWrapper.BDDFalse) {
-				Logger.logError("Delat BDD not completely transfered");
+				throw new BDDNotFalseException(delta);
 			}
 		}
 		
@@ -334,33 +337,40 @@ public abstract class Element {
 		port_aps_raw.get(to_port).add(delta);
 		
 		// update the AP edge reference		 
-		apk.updateTransferAP(new PositionTuple(name, from_port), new PositionTuple(name, to_port), delta);
+		try {
+			apk.updateTransferAP(new PositionTuple(name, from_port), new PositionTuple(name, to_port), delta);
+		} catch (APNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	public void updateAPSplit(String portname, int origin, int parta, int partb) {
+	public void updateAPSplit(String portname, int origin, int parta, int partb) throws Exception {
 		Set<Integer> apset = port_aps_raw.get(portname);
 		if(!apset.contains(origin)) {
-			Logger.logError("Error2: " + apset);
+			throw new APNotFoundException(origin);
 		}
 		apset.remove(origin);
 		apset.add(parta);
 		apset.add(partb);
 	}
 	
-	public void updateAPSetMerge(String port, int merged_ap, int ap1, int ap2) {
+	public void updateAPSetMerge(String port, int merged_ap, int ap1, int ap2) throws Exception {
 		Set<Integer> apset = port_aps_raw.get(port);
-		if(!apset.contains(ap1) || !apset.contains(ap2)) {
-			Logger.logError("Error2: " + ap1 + " or " + ap2);
+		if(!apset.contains(ap1)) {
+			throw new APNotFoundException(ap1);
+		}
+		if(!apset.contains(ap2)) {
+			throw new APNotFoundException(ap2);
 		}
 		apset.remove(ap1);
 		apset.remove(ap2);
 		apset.add(merged_ap);
 	}
 	
-	public void updateAPSetMergeBatch(String port, int merged_ap, HashSet<Integer> aps) {
+	public void updateAPSetMergeBatch(String port, int merged_ap, HashSet<Integer> aps) throws Exception {
 		Set<Integer> apset = port_aps_raw.get(port);
 		if(!apset.containsAll(aps)) {
-			Logger.logError("Error: cannot merge " + aps + " into " + merged_ap);
+			throw new APSetNotFoundException(aps);
 		}
 		apset.removeAll(aps);
 		apset.add(merged_ap);

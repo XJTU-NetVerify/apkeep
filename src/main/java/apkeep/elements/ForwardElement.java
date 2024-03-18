@@ -42,7 +42,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -54,7 +53,6 @@ import apkeep.utils.Logger;
 import apkeep.utils.TrieTree;
 import apkeep.utils.TrieTreeNode;
 import common.BDDACLWrapper;
-import common.PositionTuple;
 
 public class ForwardElement extends Element {
 	
@@ -98,7 +96,7 @@ public class ForwardElement extends Element {
 	}
 
 	@Override
-	public List<ChangeItem> insertOneRule(Rule rule) {
+	public List<ChangeItem> insertOneRule(Rule rule) throws Exception {
 		// find the node in the trie
 		TrieTreeNode node = trie.insert((ForwardingRule) rule);
 		
@@ -122,7 +120,7 @@ public class ForwardElement extends Element {
 	}
 
 	@Override
-	public List<ChangeItem> removeOneRule(Rule rule) {
+	public List<ChangeItem> removeOneRule(Rule rule) throws Exception {
 		// find the node in the trie
 		TrieTreeNode node = trie.search((ForwardingRule) rule);
 		if(node == null) {

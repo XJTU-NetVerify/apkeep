@@ -45,7 +45,6 @@ import java.util.Set;
 import apkeep.core.Network;
 import apkeep.elements.ACLElement;
 import apkeep.elements.Element;
-import apkeep.elements.ForwardElement;
 import common.BDDACLWrapper;
 import common.PositionTuple;
 
@@ -53,7 +52,7 @@ public class BlackholeChecker extends Checker {
 	
 	static int blackhole_num = 0;
 
-	public static int detectBlackhole(Network net, String device, Set<Integer> moved_aps) {
+	public static int detectBlackhole(Network net, String device, Set<Integer> moved_aps) throws Exception {
 		
 		blackhole_num = 0;
 
@@ -76,7 +75,7 @@ public class BlackholeChecker extends Checker {
 	 * Detect blackholes due to moved APs, starting from element_name
 	 * Forward/NAT and ACL elements are divided
 	 */
-	public static int detectBlackholeDivision(Network net, String device, Set<Integer> moved_aps) {
+	public static int detectBlackholeDivision(Network net, String device, Set<Integer> moved_aps) throws Exception {
 		
 		blackhole_num = 0;
 		

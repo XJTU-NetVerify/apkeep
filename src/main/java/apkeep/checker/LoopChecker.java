@@ -46,7 +46,7 @@ import apkeep.core.Network;
 import apkeep.elements.ACLElement;
 import apkeep.elements.Element;
 import apkeep.elements.ForwardElement;
-import apkeep.elements.NATElement;
+import apkeep.exception.ElementNotFoundException;
 import apkeep.utils.Logger;
 import common.BDDACLWrapper;
 import common.PositionTuple;
@@ -111,7 +111,7 @@ public class LoopChecker extends Checker {
 	
 	private static Set<Loop> loops = new HashSet<>();
 	
-	public static int detectLoop(Network net,String device, Set<Integer> moved_aps) {
+	public static int detectLoop(Network net,String device, Set<Integer> moved_aps) throws Exception {
 		
 		loops.clear();
 		
@@ -133,7 +133,8 @@ public class LoopChecker extends Checker {
 	 * Detect loops of packet moved APs, starting from element_name
 	 * No forwarding graph is constructed, directly traversing PPM
 	 */
-	public static int detectLoopDirect(Network net, String device, Set<Integer> moved_aps) 
+	public static int detectLoopDirect(Network net, String device, 
+			Set<Integer> moved_aps) throws Exception 
 	{	
 		loops.clear();
 		
@@ -163,7 +164,8 @@ public class LoopChecker extends Checker {
 	 * Forward/NAT and ACL elements are divided
 	 * No forwarding graph is constructed, directly traversing the elements
 	 */
-	public static int detectLoopDivisionDirect(Network net, String device, Set<Integer> moved_aps) 
+	public static int detectLoopDivisionDirect(Network net, String device, 
+			Set<Integer> moved_aps) throws Exception 
 	{	
 		loops.clear();
 		
@@ -244,7 +246,8 @@ public class LoopChecker extends Checker {
 	/*
 	 * Traverse the PPM model with only forward APs
 	 */
-	public static void traversePPM(Network net, PositionTuple cur_hop, HashSet<Integer> cur_aps, ArrayList<PositionTuple> history) 
+	public static void traversePPM(Network net, PositionTuple cur_hop, 
+			HashSet<Integer> cur_aps, ArrayList<PositionTuple> history) throws Exception 
 	{	
 		// check whether there is a loop
 		if (history.contains(cur_hop)) {
@@ -274,7 +277,7 @@ public class LoopChecker extends Checker {
 			}
 			
 			if (next_element == null) {
-				Logger.logError("element not found");
+				throw new ElementNotFoundException(next_node_name);
 			}
 			
 			// forward from next element
@@ -302,7 +305,9 @@ public class LoopChecker extends Checker {
 	/*
 	 * Traverse the PPM model with both forward and ACL APs
 	 */
-	public static void traversePPM(Network net, PositionTuple cur_hop, HashSet<Integer> fwdaps, HashSet<Integer> aclaps, ArrayList<PositionTuple> history) 
+	public static void traversePPM(Network net, PositionTuple cur_hop, 
+			HashSet<Integer> fwdaps, HashSet<Integer> aclaps, 
+			ArrayList<PositionTuple> history) throws Exception 
 	{			
 		if (history.contains(cur_hop)) {
 			history.add(cur_hop);
@@ -331,7 +336,7 @@ public class LoopChecker extends Checker {
 			}
 			
 			if (next_element == null) {
-				Logger.logError("element not found");
+				throw new ElementNotFoundException(next_node_name);
 			}
 			
 			// forward from next element

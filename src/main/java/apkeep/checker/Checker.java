@@ -46,12 +46,12 @@ import java.util.Set;
 import apkeep.core.Network;
 import apkeep.elements.ACLElement;
 import apkeep.elements.Element;
-import apkeep.utils.Logger;
+import apkeep.exception.APNullReferenceException;
 import common.PositionTuple;
 
 public class Checker {
 
-	protected static ForwardingGraph constructForwardingGraph(Network net, Set<Integer> moved_aps){
+	protected static ForwardingGraph constructForwardingGraph(Network net, Set<Integer> moved_aps) throws Exception{
 		if(moved_aps.size() == 0) return null;
 		
 		Set<Integer> rewrited_aps = net.rewriteAllAPs(moved_aps);
@@ -63,7 +63,7 @@ public class Checker {
 		for(int ap : rewrited_aps) {
 			Set<PositionTuple> hold_ports = net.getHoldPorts(ap);
 			if(hold_ports == null) {
-				Logger.logError("AP not hold by any ports");
+				throw new APNullReferenceException(ap);
 			}
 			
 			for(PositionTuple pt : hold_ports) {
@@ -92,7 +92,7 @@ public class Checker {
 		return g;
 	}
 	
-	protected static ForwardingGraph constructForwardingGraphFWD(Network net, Set<Integer> moved_aps) {
+	protected static ForwardingGraph constructForwardingGraphFWD(Network net, Set<Integer> moved_aps) throws Exception {
 		if(moved_aps.size() == 0) return null;
 		
 		Map<PositionTuple, Set<Integer>> port_aps = new HashMap<>();
@@ -103,7 +103,7 @@ public class Checker {
 		for(int ap : moved_aps) {
 			Set<PositionTuple> hold_ports = net.getHoldPorts(ap);
 			if(hold_ports == null) {
-				Logger.logError("AP not hold by any ports");
+				throw new APNullReferenceException(ap);
 			}
 			
 			for(PositionTuple pt : hold_ports) {
@@ -144,7 +144,7 @@ public class Checker {
 		return g;
 	}
 	
-	protected static ForwardingGraph constructForwardingGraphACL(Network net, Set<Integer> moved_aps) {
+	protected static ForwardingGraph constructForwardingGraphACL(Network net, Set<Integer> moved_aps) throws Exception {
 		if(moved_aps.size() == 0) return null;
 		
 		Map<PositionTuple, Set<Integer>> port_aps = new HashMap<>();
@@ -155,7 +155,7 @@ public class Checker {
 		for(int ap : moved_aps) {
 			Set<PositionTuple> hold_ports = net.getACLHoldPorts(ap);
 			if(hold_ports == null) {
-				Logger.logError("AP not hold by any ports");
+				throw new APNullReferenceException(ap);
 			}
 			
 			for(PositionTuple pt : hold_ports) {

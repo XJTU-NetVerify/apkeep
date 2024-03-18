@@ -53,6 +53,7 @@ import java.util.Map;
 import java.util.Set;
 
 import apkeep.core.Network;
+import apkeep.utils.Evaluator;
 import apkeep.utils.Parameters;
 
 public class Test {
@@ -62,7 +63,6 @@ public class Test {
 		try {
 			br = new BufferedReader(new FileReader(inputFile));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -87,17 +87,18 @@ public class Test {
 		writer.close();
 	}
 
-	public static void main(String[] args) throws IOException {
-//		String name = "4switch";
+	public static void main(String[] args) throws Exception {
+		String name = "4switch";
 //		String name = "airtel1";
 //		String name = "airtel2";
-		String name = "internet2";
+//		String name = "internet2";
 //		String name = "stanford-noacl";
 //		String name = "purdue-noacl";
 //		String name = "stanford";
 //		String name = "purdue";
 		int nat_num = 0;
 		String datasetFolder = Parameters.root_path+name;
+		String outFolder = datasetFolder+"/out.txt";
 		
 		String op_mode = "normal";
 		ArrayList<String> topo = readFile(datasetFolder+"/topo.txt");
@@ -173,7 +174,9 @@ public class Test {
 		}
 		
 		Network net = new Network(name, op_mode);
+		Evaluator eva = new Evaluator(name,outFolder);
 		net.initializeNetwork(topo, devices, device_acls, vlan_ports, device_nats);
-		net.run(datasetFolder+updateFile);
+		net.run(eva, datasetFolder+updateFile);
+		eva.printExpResults();
 	}
 }

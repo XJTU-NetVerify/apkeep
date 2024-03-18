@@ -46,6 +46,7 @@ import java.util.List;
 import java.util.Set;
 
 import apkeep.core.ChangeItem;
+import apkeep.exception.APNotFoundException;
 import apkeep.rules.RewriteRule;
 import apkeep.rules.Rule;
 import apkeep.utils.Logger;
@@ -160,7 +161,7 @@ public class NATElement extends Element {
 	}
 
 	@Override
-	public List<ChangeItem> insertOneRule(Rule rule) {
+	public List<ChangeItem> insertOneRule(Rule rule) throws Exception {
 		// TODO Auto-generated method stub
 		List<ChangeItem> change_set = identifyChangesInsert(rule, rewrite_rules);
 		rule_map.put(rule.getPort(), rule);
@@ -169,7 +170,7 @@ public class NATElement extends Element {
 	}
 
 	@Override
-	public List<ChangeItem> removeOneRule(Rule rule) {
+	public List<ChangeItem> removeOneRule(Rule rule) throws Exception {
 		int index = findRule(rule);
 		if(index == rewrite_rules.size()) {
 			Logger.logInfo("Rule not found " + rule.toString());
@@ -214,7 +215,11 @@ public class NATElement extends Element {
 				HashSet<Integer> new_aps = new HashSet<Integer>(old_aps); 
 				for (int one_ap : new_aps) {
 					if (apk.hasAP(one_ap)) {
-						apk.tryMergeAP(one_ap);
+						try {
+							apk.tryMergeAP(one_ap);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
 					}
 				}
 				if (old_aps.size() == new_aps.size())
@@ -237,14 +242,18 @@ public class NATElement extends Element {
 		}
 		
 		// update the AP edge reference		 
-		apk.updateTransferAP(new PositionTuple(name, from_port), new PositionTuple(name, to_port), delta);
+		try {
+			apk.updateTransferAP(new PositionTuple(name, from_port), new PositionTuple(name, to_port), delta);
+		} catch (APNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
-	public void updateAPSplit(String portname, int origin, int parta, int partb) {
+	public void updateAPSplit(String portname, int origin, int parta, int partb) throws Exception {
 		Set<Integer> apset = port_aps_raw.get(portname);
 		if(!apset.contains(origin)) {
-			Logger.logError("Error2: " + apset);
+			throw new APNotFoundException(origin);
 		}
 		apset.remove(origin);
 		apset.add(parta);
@@ -282,10 +291,13 @@ public class NATElement extends Element {
 	}
 	
 	@Override
-	public void updateAPSetMerge(String port, int merged_ap, int ap1, int ap2) {
+	public void updateAPSetMerge(String port, int merged_ap, int ap1, int ap2) throws Exception {
 		Set<Integer> apset = port_aps_raw.get(port);
-		if(!apset.contains(ap1) || !apset.contains(ap2)) {
-			Logger.logError("Error2: " + ap1 + " or " + ap2);
+		if(!apset.contains(ap1)) {
+			throw new APNotFoundException(ap1);
+		}
+		if(!apset.contains(ap2)) {
+			throw new APNotFoundException(ap2);
 		}
 		apset.remove(ap1);
 		apset.remove(ap2);
@@ -323,7 +335,7 @@ public class NATElement extends Element {
 		output_aps.add(merged_rewrite);
 	}
 	
-	public boolean updateRewriteTable() {
+	public boolean updateRewriteTable() throws Exception {
 		HashMap<Integer, HashSet<Integer>> old_rewrite_table = new HashMap<Integer, HashSet<Integer>>(getRewrite_table());
 		for (int ap : old_rewrite_table.keySet()) {
 			HashSet<Integer> rewrited_aps = getRewrite_table().get(ap);
@@ -348,13 +360,23 @@ public class NATElement extends Element {
 		boolean updated = true;
 		int update_round = 1;
 		while(updated) {
-			updated = updateRewriteTable();
+			try {
+				updated = updateRewriteTable();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			Logger.logInfo("Update rewrite table round " + update_round++);
 		}
 	}
 
 	@Override
 	protected int tryMergeIfNATElement(int delta) {
-		return apk.tryMergeAP(delta);
+		try {
+			return apk.tryMergeAP(delta);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return delta;
 	}
 }

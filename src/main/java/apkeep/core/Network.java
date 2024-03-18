@@ -41,7 +41,6 @@ package apkeep.core;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -57,7 +56,9 @@ import apkeep.elements.ACLElement;
 import apkeep.elements.Element;
 import apkeep.elements.ForwardElement;
 import apkeep.elements.NATElement;
+import apkeep.exception.ElementNotFoundException;
 import apkeep.rules.Rule;
+import apkeep.utils.Evaluator;
 import apkeep.utils.Logger;
 import apkeep.utils.Parameters;
 import common.BDDACLWrapper;
@@ -93,9 +94,6 @@ public class Network {
 	 */
 	protected APKeeper fwd_apk; // the APKeeper for forwarding devices
 	protected APKeeper acl_apk; // the APKeeper for ACL devices
-	
-	int total_update = 0;
-	boolean insert_finish = false;
 	
 	public Network(String network_name, String op_mode) {
 		name = network_name;
@@ -286,12 +284,21 @@ public class Network {
 		return acl_node_names;
 	}
 
-	public Set<PositionTuple> getHoldPorts(int ap) {
+	public Set<PositionTuple> getHoldPorts(int ap) throws Exception {
 		return fwd_apk.getHoldPorts(ap);
 	}
 	
-	public Set<PositionTuple> getACLHoldPorts(int ap) {
+	public Set<PositionTuple> getACLHoldPorts(int ap) throws Exception {
 		return acl_apk.getHoldPorts(ap);
+	}
+	
+	public int getAPNum() {
+		if(division_activated) {
+			return fwd_apk.getAPNum()+acl_apk.getAPNum();
+		}
+		else {
+			return fwd_apk.getAPNum();
+		}
 	}
 
 	public Set<PositionTuple> mapElementPortIntoTopoPort(Set<PositionTuple> hold_ports) {
@@ -363,69 +370,56 @@ public class Network {
 		return rewrite_table.get(ap);
 	}
 	
-	public void run(List<String> rules) {
+	public void run(Evaluator eva, List<String> rules) throws Exception {
 		
-		insert_finish = false;
-		total_update = 0;
+		eva.startExp();
 		
 		for(String rule : rules) {
-			total_update++;
-			updateRule(rule);
+			updateRule(eva, rule);
 		}
 		
 		hardMergeAPBatch();
 		
-		Logger.logInfo("Total AP: "+fwd_apk.getAPNum());
+		eva.endExp(getAPNum());
 	}
 	
-	public void run(String ruleFile) throws IOException {
+	public void run(Evaluator eva, String ruleFile) throws Exception {
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new FileReader(ruleFile));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		insert_finish = false;
-		total_update = 0;
+
+		eva.startExp();
 		
 		String OneLine;
 		while((OneLine = br.readLine()) != null) {
 			String linestr = OneLine.trim();
-			total_update++;
-			updateRule(linestr);
+			updateRule(eva, linestr);
 		}
 
 		hardMergeAPBatch();
-		if(division_activated) {
-			Logger.print("Total AP: "+(fwd_apk.getAPNum()+acl_apk.getAPNum()));
-		}
-		else {
-			Logger.print("Total AP: "+fwd_apk.getAPNum());
-		}
+
+		eva.endExp(getAPNum());
 	}
 	
-	public void updateRule(String rule) {
+	public void updateRule(Evaluator eva, String rule) throws Exception {
 		Logger.logDebugInfo(rule);
-		if(total_update % Parameters.PRINT_INTERVAL == 0) Logger.print(total_update+": "+rule);
 		String[] tokens = rule.split(" ");
 		String op = tokens[0];
 		String type = tokens[1];
 		String device = tokens[2];
 		
-		if(op.equals("-") && !insert_finish) {
-			insert_finish = true;
+		if(op.equals("-") && !eva.isInsertFinish()) {
+			eva.setInsertFlag(true);
 			hardMergeAPBatch();
-			if(division_activated) {
-				Logger.print("Total AP: "+(fwd_apk.getAPNum()+acl_apk.getAPNum()));
-			}
-			else {
-				Logger.print("Total AP: "+fwd_apk.getAPNum());
-			}
+			eva.setInsertAP(getAPNum());
 		}
 		/*
 		 * Updating PPM
 		 */
+		eva.startUpdate();
 		Set<Integer> moved_aps = updateRule(op, type, device, rule);
 		if (moved_aps == null) return;
 		
@@ -435,21 +429,28 @@ public class Network {
 		if (!moved_aps.isEmpty()) {
 			int loops = checkLoop(type, device, moved_aps);
 			int blackholes = checkBlackHole(type, device, moved_aps);
+
+			eva.addLoops(loops);
+			eva.addBlackholes(blackholes);
 		}
 		
 		softMergeAPBatch();
+		
+		eva.endUpdate();
+		eva.printUpdateResults(getAPNum());
 	}
 	
-	private Set<Integer> updateRule(String op, String type, String device, String rule){
-		Element e = null;
+	private Set<Integer> updateRule(String op, String type, String device, String rule) throws Exception{
+		String element_name = null;
 		if(type.equals("nat")) {
-			e = elements.get(device+"_"+rule.split(" ")[3]);
+			element_name = device+"_"+rule.split(" ")[3];
 		}
 		else{
-			e = elements.get(device);
+			element_name = device;
 		}
+		Element e = elements.get(element_name);
 		if (e == null) {
-			Logger.logError("Element " + device + " not found");
+			throw new ElementNotFoundException(element_name);
 		}
 		
 		List<ChangeItem> change_set = new ArrayList<>();
@@ -477,7 +478,7 @@ public class Network {
 		return moved_aps;
 	}
 	
-	public int checkLoop(String type, String device, Set<Integer> moved_aps) {
+	public int checkLoop(String type, String device, Set<Integer> moved_aps) throws Exception {
 		if(!Parameters.PROPERTIES_TO_CHECK.contains(Property.LOOP)) return 0;
 		if(division_activated) {
 			return LoopChecker.detectLoopDivisionDirect(this, device, moved_aps);
@@ -488,7 +489,7 @@ public class Network {
 		return LoopChecker.detectLoop(this, device, moved_aps);
 	}
 	
-	public int checkBlackHole(String type, String device, Set<Integer> moved_aps) {
+	public int checkBlackHole(String type, String device, Set<Integer> moved_aps) throws Exception {
 		if(!Parameters.PROPERTIES_TO_CHECK.contains(Property.BLACKHOLE)) return 0;
 		if(division_activated) {
 			return BlackholeChecker.detectBlackholeDivision(this, device, moved_aps);
@@ -496,7 +497,7 @@ public class Network {
 		return BlackholeChecker.detectBlackhole(this, device, moved_aps);
 	}
 	
-	private void softMergeAPBatch() {
+	private void softMergeAPBatch() throws Exception {
 		if(fwd_apk.isMergeable()) {
 			fwd_apk.tryMergeAPBatch();
 		}
@@ -505,7 +506,7 @@ public class Network {
 		}
 	}
 	
-	private void hardMergeAPBatch() {
+	private void hardMergeAPBatch() throws Exception {
 		fwd_apk.tryMergeAPBatch();
 		if (acl_apk != null) {
 			acl_apk.tryMergeAPBatch();

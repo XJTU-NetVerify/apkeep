@@ -87,14 +87,14 @@ public class ACLElement extends Element {
 	}
 
 	@Override
-	public List<ChangeItem> insertOneRule(Rule rule) {
+	public List<ChangeItem> insertOneRule(Rule rule) throws Exception {
 		List<ChangeItem> change_set = identifyChangesInsert(rule, acl_rule);
 		port_aps_raw.putIfAbsent(rule.getPort(), new HashSet<Integer>());
 		return change_set;
 	}
 
 	@Override
-	public List<ChangeItem> removeOneRule(Rule rule) {
+	public List<ChangeItem> removeOneRule(Rule rule) throws Exception {
 		int index = findRule(rule);
 		if(index == acl_rule.size()) {
 			Logger.logInfo("Rule not found " + rule.toString());

@@ -44,6 +44,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
 
+import apkeep.utils.Parameters;
 import jdd.bdd.*;
 import jdd.bdd.debug.DebugBDD;
 
@@ -115,7 +116,7 @@ public class BDDACLWrapper implements Serializable{
             
             // normal
             //aclBDD = new BDD(100000000, 1000000);
-            aclBDD = new BDD(10000000, 10000000);
+    	    aclBDD = new BDD(Parameters.BDD_TABLE_SIZE, Parameters.BDD_TABLE_SIZE);
             //aclBDD = new BDD(10000000, 1000000);
             
             protocol = new int[protocolBits];
