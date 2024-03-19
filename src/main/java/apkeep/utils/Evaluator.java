@@ -42,8 +42,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import apkeep.elements.Element;
-
 public class Evaluator {
 	
 	String name;
@@ -52,7 +50,6 @@ public class Evaluator {
 	int fast_update;
 	
 	int loop_num;
-	int blackhole_num;
 	
 	int ap_insert_num;
 	int ap_end_num;
@@ -98,10 +95,6 @@ public class Evaluator {
 		loop_num += loops;
 	}
 	
-	public void addBlackholes(int blackholes) {
-		blackhole_num += blackholes;
-	}
-	
 	public void startUpdate() {
 		update_num++;
 		start_time = System.nanoTime();
@@ -143,7 +136,6 @@ public class Evaluator {
 		fast_update = 0;
 		
 		loop_num = 0;
-		blackhole_num = 0;
 		
 		total_time = 0;
 		ppm_time = 0;
@@ -198,7 +190,6 @@ public class Evaluator {
 		System.out.println("Number of APs after update: " + ap_end_num);
 		
 		System.out.println("Number of loops: " + loop_num);
-		System.out.println("Number of blackholes: " + blackhole_num);
 
 		System.out.println("Average update time: " + total_time/update_num/1000.0 + "us");
 		System.out.println(fast_update*100.0/update_num + "% < " + Parameters.FAST_UPDATE_THRESHOLD + "ms");	

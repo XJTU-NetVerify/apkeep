@@ -116,7 +116,7 @@ public class BDDACLWrapper implements Serializable{
             
             // normal
             //aclBDD = new BDD(100000000, 1000000);
-    	    aclBDD = new BDD(Parameters.BDD_TABLE_SIZE, Parameters.BDD_TABLE_SIZE);
+    	    aclBDD = new BDD(Parameters.BDD_TABLE_SIZE, 1000000);
             //aclBDD = new BDD(10000000, 1000000);
             
             protocol = new int[protocolBits];

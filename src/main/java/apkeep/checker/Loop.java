@@ -38,58 +38,63 @@
  */
 package apkeep.checker;
 
-import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Set;
 
-import apkeep.elements.Element;
-import apkeep.elements.NATElement;
 import common.PositionTuple;
 
-public class ForwardingGraph {
-
-	Map<PositionTuple, HashSet<PositionTuple>> topology;
-	Map<String, Set<PositionTuple>> node_ports;
-	Map<PositionTuple, Set<Integer>> port_aps;
+public class Loop {
+	Set<Integer> apset;
+	List<PositionTuple> path;
 	
-	Map<String, Element> elements;
-	
-	public ForwardingGraph(Map<String, Set<PositionTuple>> node_ports, 
-			Map<PositionTuple, Set<Integer>> port_aps, 
-			Map<PositionTuple, HashSet<PositionTuple>> topo,
-			Map<String, Element> elements) {
-		this.node_ports = node_ports;
-		this.port_aps = port_aps;
-		topology = topo;
-		this.elements = elements;
-	}
-
-	public Set<PositionTuple> getStartPorts(String element_name) {
-		Set<PositionTuple> pts = new HashSet<>();
-		if(!node_ports.containsKey(element_name)) return pts;
-		for(PositionTuple pt : node_ports.get(element_name)) {
-			if(!pt.getPortName().equals("default")) pts.add(pt);
+	public Loop(Set<Integer> rewrited_aps, List<PositionTuple> history, PositionTuple cur_hop)
+	{
+		apset = rewrited_aps;
+		path = history;
+		while(path.size() > 0) {
+			if(!path.get(0).equals(cur_hop)) {
+				path.remove(0);
+			}
+			else break;
 		}
-		return pts;
-	}
-
-	public Set<Integer> getAPs(PositionTuple pt) {
-		return port_aps.get(pt);
-	}
-
-	public Set<PositionTuple> getConnectedPort(PositionTuple cur_hop) {
-		return topology.get(cur_hop);
 	}
 	
-	public Set<PositionTuple> getPorts(String node) {
-		if(node_ports.containsKey(node)) return node_ports.get(node);
-		return new HashSet<>();
+	public String toString()
+	{
+		String loop = "loop found for " + apset + ": ";
+		for (int i=0; i<path.size(); i++) {
+			loop += path.get(i) + " ";
+		}
+		return "++++++++++++++++++++++++++++++\n" 
+				+ loop 
+				+ "\n++++++++++++++++++++++++++++++"; 
 	}
-
-	public HashSet<Integer> forwardAPs(PositionTuple cur_hop, HashSet<Integer> aps) {
-		Element e = elements.get(cur_hop.getDeviceName());
-		if(e == null) return new HashSet<>(aps);
-		if(e instanceof NATElement) return e.forwardAPs(cur_hop.getPortName(), aps);
-		return new HashSet<>(port_aps.get(cur_hop));
+	
+	@Override
+	public int hashCode(){
+		return 0;
+	}
+	
+	@Override
+	public boolean equals (Object o) 
+	{
+		Loop loop = (Loop) o;
+		//if (!apset.equals(loop.apset)) return false;
+		if (path.size() != loop.path.size()) return false;
+		int i;
+		PositionTuple start = loop.path.get(0);
+		for (i=0; i< path.size(); i++) {
+			if (path.get(i).equals(start)){
+				break;
+			}
+		}
+		for (int j=0; j<path.size()-1; j++) {
+			if (!path.get((i+j)%(path.size()-1)).equals(loop.path.get(j))) {
+				return false;
+			}
+		}
+		// the loop already exists, update the AP set for this loop
+		apset.addAll(loop.apset);
+		return true;
 	}
 }

@@ -88,14 +88,14 @@ public class Test {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String name = "4switch";
+//		String name = "4switch";
 //		String name = "airtel1";
 //		String name = "airtel2";
 //		String name = "internet2";
 //		String name = "stanford-noacl";
 //		String name = "purdue-noacl";
 //		String name = "stanford";
-//		String name = "purdue";
+		String name = "purdue";
 		int nat_num = 0;
 		String datasetFolder = Parameters.root_path+name;
 		String outFolder = datasetFolder+"/out.txt";

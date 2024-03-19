@@ -399,11 +399,11 @@ public abstract class Element {
 //		System.out.println(port_aps_raw.keySet());
 //		System.out.println(new_aps);
 //		System.out.println(getPortAPs(port));
-//		new_aps.retainAll(getPortAPs(port));
+		new_aps.retainAll(getPortAPs(port));
 		return new_aps;
 	}
 
-	public static boolean hasOverlap(HashSet<Integer> aps1, HashSet<Integer> aps2) {
+	public static boolean hasOverlap(Set<Integer> aps1, Set<Integer> aps2) {
 		if (aps1.isEmpty() || aps2.isEmpty()) {
 			return false;
 		}

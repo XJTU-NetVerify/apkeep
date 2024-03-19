@@ -49,8 +49,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import apkeep.checker.BlackholeChecker;
-import apkeep.checker.LoopChecker;
+import apkeep.checker.Checker;
 import apkeep.checker.Property;
 import apkeep.elements.ACLElement;
 import apkeep.elements.Element;
@@ -87,13 +86,15 @@ public class Network {
 	/*
 	 * The BDD data structure for encoding packet sets with Boolean formula
 	 */
-	protected BDDACLWrapper bdd_engine;
+	public BDDACLWrapper bdd_engine;
 	
 	/*
 	 * The key data structure that handles the split and merge of predicates
 	 */
 	protected APKeeper fwd_apk; // the APKeeper for forwarding devices
 	protected APKeeper acl_apk; // the APKeeper for ACL devices
+
+	private Checker checker;
 	
 	public Network(String network_name, String op_mode) {
 		name = network_name;
@@ -112,6 +113,8 @@ public class Network {
 		rewrite_table = new HashMap<>();
 
 		Element.setBDDWrapper(bdd_engine);
+		
+		checker = new Checker(this);
 	}
 	
 	public void initializeNetwork(ArrayList<String> l1_links, 
@@ -281,6 +284,10 @@ public class Network {
 		}
 	}
 	
+	public Set<String> getNATNames(){
+		return nat_element_names;
+	}
+	
 	public Set<String> getACLNodes() {
 		return acl_node_names;
 	}
@@ -291,6 +298,10 @@ public class Network {
 	
 	public Set<PositionTuple> getACLHoldPorts(int ap) throws Exception {
 		return acl_apk.getHoldPorts(ap);
+	}
+	
+	public int getFWDAPNum() {
+		return fwd_apk.getAPNum();
 	}
 	
 	public int getAPNum() {
@@ -429,11 +440,7 @@ public class Network {
 		 * Verifying properties
 		 */
 		if (!moved_aps.isEmpty()) {
-			int loops = checkLoop(type, device, moved_aps);
-			int blackholes = checkBlackHole(type, device, moved_aps);
-
-			eva.addLoops(loops);
-			eva.addBlackholes(blackholes);
+			checkProperty(eva, device, moved_aps);
 		}
 		
 		softMergeAPBatch();
@@ -480,23 +487,15 @@ public class Network {
 		return moved_aps;
 	}
 	
-	public int checkLoop(String type, String device, Set<Integer> moved_aps) throws Exception {
-		if(!Parameters.PROPERTIES_TO_CHECK.contains(Property.LOOP)) return 0;
+	public void checkProperty(Evaluator eva, String device, Set<Integer> moved_aps) throws Exception {
 		if(division_activated) {
-			return LoopChecker.detectLoopDivisionDirect(this, device, moved_aps);
+			checker.checkPropertyDivision(device, moved_aps);
 		}
-		if(name.startsWith("purdue")) {
-			return LoopChecker.detectLoopDirect(this, device, moved_aps);
+		else {
+			checker.checkProperty(device, moved_aps);
 		}
-		return LoopChecker.detectLoop(this, device, moved_aps);
-	}
-	
-	public int checkBlackHole(String type, String device, Set<Integer> moved_aps) throws Exception {
-		if(!Parameters.PROPERTIES_TO_CHECK.contains(Property.BLACKHOLE)) return 0;
-		if(division_activated) {
-			return BlackholeChecker.detectBlackholeDivision(this, device, moved_aps);
-		}
-		return BlackholeChecker.detectBlackhole(this, device, moved_aps);
+		
+		eva.addLoops(checker.getLoops());
 	}
 	
 	private void softMergeAPBatch() throws Exception {
