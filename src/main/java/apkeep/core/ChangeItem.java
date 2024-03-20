@@ -60,4 +60,8 @@ public class ChangeItem {
 	public int getDelta() {
 		return delta;
 	}
+	
+	public String toString() {
+		return "["+delta+"]"+from_port +" -> "+ to_port;
+	}
 }

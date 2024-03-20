@@ -162,7 +162,6 @@ public abstract class Element {
 				if(!inserted) {
 					// fast check whether the default rule is the only rule affected
 					int temp = bdd.diff(hit_bdd, default_rule.getHit_bdd());
-//					System.out.println(hit_bdd +" - "+default_rule.getHit_bdd()+" = "+temp);
 					if (temp == BDDACLWrapper.BDDFalse) {
 						default_rule.setHit_bdd(bdd.diffTo(default_rule.getHit_bdd(), hit_bdd));
 						if (!default_rule.getPort().equals(rule.getPort())) {
@@ -268,7 +267,6 @@ public abstract class Element {
 	public Set<Integer> updatePortPredicateMap(List<ChangeItem> change_set) throws Exception{
 		HashSet<Integer> moved_aps = new HashSet<Integer>();
 		if(change_set.isEmpty()) return moved_aps;
-		
 		for(ChangeItem item : change_set) {
 			
 			String from_port = item.getFrom_port();
@@ -287,6 +285,8 @@ public abstract class Element {
 				}
 				moved_aps.add(merged_ap);
 				bdd.getBDD().deref(merged_ap);
+//				moved_aps.add(delta);
+//				bdd.getBDD().deref(delta);
 				continue;
 			}
 			
@@ -317,6 +317,10 @@ public abstract class Element {
 					moved_aps.add(merged_ap);
   					delta = bdd.diffTo(delta, intersect);
 					bdd.getBDD().deref(merged_ap);
+//					moved_aps.add(intersect);
+//					delta = bdd.diffTo(delta, intersect);
+//					bdd.getBDD().deref(intersect);
+					
 				}
 				if(delta == BDDACLWrapper.BDDFalse) break;
 			}
@@ -394,11 +398,6 @@ public abstract class Element {
 		if(new_aps.remove(BDDACLWrapper.BDDTrue)) {
 			return new HashSet<>(getPortAPs(port));
 		}
-//		System.out.println("*******");
-//		System.out.println(name+" "+port);
-//		System.out.println(port_aps_raw.keySet());
-//		System.out.println(new_aps);
-//		System.out.println(getPortAPs(port));
 		new_aps.retainAll(getPortAPs(port));
 		return new_aps;
 	}

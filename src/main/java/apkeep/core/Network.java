@@ -39,8 +39,11 @@
 package apkeep.core;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -50,7 +53,7 @@ import java.util.Map;
 import java.util.Set;
 
 import apkeep.checker.Checker;
-import apkeep.checker.Property;
+import apkeep.checker.ForwardingGraph;
 import apkeep.elements.ACLElement;
 import apkeep.elements.Element;
 import apkeep.elements.ForwardElement;
@@ -206,7 +209,6 @@ public class Network {
 	private void addFWDElement(Set<String> devices) {
 		if(devices == null) return;
 		for(String element : devices) {
-//			System.out.println(element);
 			if(elements.containsKey(element)) continue;
 			Element e = new ForwardElement(element);
 			elements.put(element, e);
@@ -431,8 +433,7 @@ public class Network {
 		/*
 		 * Updating PPM
 		 */
-		eva.startUpdate();
-		Set<Integer> moved_aps = updateRule(op, type, device, rule);
+		Set<Integer> moved_aps = updateRule(eva, op, type, device, rule);
 		if (moved_aps == null) return;
 		eva.midUpdate();
 		
@@ -449,7 +450,7 @@ public class Network {
 		eva.printUpdateResults(getAPNum());
 	}
 	
-	private Set<Integer> updateRule(String op, String type, String device, String rule) throws Exception{
+	private Set<Integer> updateRule(Evaluator eva, String op, String type, String device, String rule) throws Exception{
 		String element_name = null;
 		if(type.equals("nat")) {
 			element_name = device+"_"+rule.split(" ")[3];
@@ -472,6 +473,7 @@ public class Network {
 		/*
 		 * Step 2. Identifying changes
 		 */
+		eva.startUpdate();
 		if (op.equals("+")){
 			change_set = e.insertOneRule(r);
 		}
@@ -483,7 +485,6 @@ public class Network {
 		 * Step 3. Updating predicates
 		 */
 		Set<Integer> moved_aps = e.updatePortPredicateMap(change_set);
-		
 		return moved_aps;
 	}
 	
@@ -512,5 +513,41 @@ public class Network {
 		if (acl_apk != null) {
 			acl_apk.tryMergeAPBatch();
 		}
+	}
+	
+	/* answer "what if" questions for each possible link failure
+	 * for each link, and for each 
+	 */
+	public void checkLinkFailure(Evaluator eva, String output) throws IOException
+	{
+		File output_file = new File(output);
+		FileWriter output_writer = new FileWriter(output_file, true);
+		
+		Checker checker = new Checker(this);
+
+		int total_links = 0;
+		long construction_time = 0;
+		long detection_time = 0;
+		for (PositionTuple pt1 : topology.keySet()) {
+			for (PositionTuple pt2 : topology.get(pt1)) {
+				long t1 = System.nanoTime();
+				ForwardingGraph g = checker.constructFowardingGraph(pt1);
+				if (g == null) continue;
+				long t2 = System.nanoTime();
+				construction_time += (t2-t1);
+				checker.checkProperty(g);
+				long t3 = System.nanoTime();
+				detection_time += (t3-t2);
+				total_links ++;
+				System.out.println("Link " + pt1 + "->" + pt2 + ":" + (t3-t1)/1000000.0 + "ms");
+			}
+		}
+		output_writer.write(total_links + " " 
+				+ construction_time / total_links / 1000000.0 + " " 
+				+ detection_time / total_links / 1000000.0 + " " 
+				+ (construction_time + detection_time) / total_links / 1000000.0 + "\n");
+		output_writer.close();
+		
+		eva.addLinkFailure(total_links, construction_time, detection_time);
 	}
 }

@@ -38,10 +38,6 @@
  */
 package apkeep.utils;
 
-import java.util.HashSet;
-
-import apkeep.checker.Property;
-
 public class Parameters {
 
 	public static boolean MergeAP = true;
@@ -61,9 +57,6 @@ public class Parameters {
 //	public static int PRINT_RESULT_INTERVAL = 10000;
 //	public static int PRINT_RESULT_INTERVAL = 1;
 	public static int WRITE_RESULT_INTERVAL = 1;
-
-//	public static HashSet<Property> PROPERTIES_TO_CHECK = new HashSet<Property>(){{add(Property.LOOP);add(Property.BLACKHOLE);}};
-	public static HashSet<Property> PROPERTIES_TO_CHECK = new HashSet<Property>(){{add(Property.LOOP);}};
 	
-	public static String root_path = "F:/Experiments/apkeep-opensource/";	
+	public static String root_path = "F:/Experiments/apkeep-opensource/";
 }

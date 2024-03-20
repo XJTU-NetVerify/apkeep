@@ -119,7 +119,7 @@ public class NATElement extends Element {
 		if (!output_aps.contains(ap1) && output_aps.contains(ap2)) 
 			return false;
 		
-		for (HashSet<Integer> aps : getRewrite_table().values()) {
+		for (HashSet<Integer> aps : rewrite_table.values()) {
 			if (aps.contains(ap1) && !aps.contains(ap2)) {
 				return false;
 			}
@@ -133,7 +133,7 @@ public class NATElement extends Element {
 	public boolean isMergable(HashSet<Integer> aps) {
 		if(checkIntersect(aps, output_aps)) return false;
 		
-		for (HashSet<Integer> rewrited_aps : getRewrite_table().values()) {
+		for (HashSet<Integer> rewrited_aps : rewrite_table.values()) {
 			if(checkIntersect(aps, rewrited_aps)) return false;
 		}
 		return true;
@@ -162,7 +162,6 @@ public class NATElement extends Element {
 
 	@Override
 	public List<ChangeItem> insertOneRule(Rule rule) throws Exception {
-		// TODO Auto-generated method stub
 		List<ChangeItem> change_set = identifyChangesInsert(rule, rewrite_rules);
 		rule_map.put(rule.getPort(), rule);
 		port_aps_raw.putIfAbsent(rule.getPort(), new HashSet<Integer>());
@@ -208,8 +207,8 @@ public class NATElement extends Element {
 		port_aps_raw.get(from_port).remove(delta);
 		port_aps_raw.get(to_port).add(delta);
 		
-		if (getRewrite_table().containsKey(delta)) {
-			HashSet<Integer> old_aps = getRewrite_table().get(delta);
+		if (rewrite_table.containsKey(delta)) {
+			HashSet<Integer> old_aps = rewrite_table.get(delta);
 			output_aps.removeAll(old_aps);
 			while (true) {
 				HashSet<Integer> new_aps = new HashSet<Integer>(old_aps); 
@@ -229,16 +228,16 @@ public class NATElement extends Element {
 			old_aps.clear();
 		}
 		else {
-			getRewrite_table().put(delta, new HashSet<Integer>());
+			rewrite_table.put(delta, new HashSet<Integer>());
 		}
 		
 		if (to_port.equals("default")) {
-			getRewrite_table().remove(delta);
+			rewrite_table.remove(delta);
 		}
 		else {
 			RewriteRule rule = (RewriteRule) rule_map.get(to_port);
 			int delta_rewrite = bdd.nat(delta, rule.getField_bdd(), rule.getNew_pkt_bdd());
-			getRewrite_table().get(delta).add(delta_rewrite);
+			rewrite_table.get(delta).add(delta_rewrite);
 		}
 		
 		// update the AP edge reference		 
@@ -259,7 +258,7 @@ public class NATElement extends Element {
 		apset.add(parta);
 		apset.add(partb);
 		
-		for (HashSet<Integer> aps : getRewrite_table().values()) {
+		for (HashSet<Integer> aps : rewrite_table.values()) {
 			if (aps.contains(origin)) {
 				aps.remove(origin);
 				aps.add(parta);
@@ -270,23 +269,23 @@ public class NATElement extends Element {
 			}
 		}
 		
-		if (!getRewrite_table().containsKey(origin))
+		if (!rewrite_table.containsKey(origin))
 			return;
 		// update the rewrite table
-		if (getRewrite_table().get(origin) != null) {
-			output_aps.removeAll(getRewrite_table().get(origin));
+		if (rewrite_table.get(origin) != null) {
+			output_aps.removeAll(rewrite_table.get(origin));
 		}
-		getRewrite_table().remove(origin);
+		rewrite_table.remove(origin);
 		RewriteRule rule = (RewriteRule) rule_map.get(portname);
 		int parta_rewrite = bdd.nat(parta, rule.getField_bdd(), rule.getNew_pkt_bdd());
 		int partb_rewrite = bdd.nat(partb, rule.getField_bdd(), rule.getNew_pkt_bdd());
 		HashSet<Integer> parta_apset = new HashSet<Integer>();
 		parta_apset.add(parta_rewrite);
-		getRewrite_table().put(parta, parta_apset);
+		rewrite_table.put(parta, parta_apset);
 		output_aps.add(parta_rewrite);
 		HashSet<Integer> partb_apset = new HashSet<Integer>();
 		partb_apset.add(partb_rewrite);
-		getRewrite_table().put(partb, partb_apset);
+		rewrite_table.put(partb, partb_apset);
 		output_aps.add(partb_rewrite);
 	}
 	
@@ -303,7 +302,7 @@ public class NATElement extends Element {
 		apset.remove(ap2);
 		apset.add(merged_ap);
 		
-		for (HashSet<Integer> aps : getRewrite_table().values()) {
+		for (HashSet<Integer> aps : rewrite_table.values()) {
 			if (aps.contains(ap1) && aps.contains(ap2)) {
 				aps.remove(ap1);
 				aps.remove(ap2);
@@ -314,31 +313,31 @@ public class NATElement extends Element {
 			}
 		}
 			
-		if (!getRewrite_table().containsKey(ap1) && !getRewrite_table().containsKey(ap2))
+		if (!rewrite_table.containsKey(ap1) && !rewrite_table.containsKey(ap2))
 			return;
 		
 		// update the rewrite table
-		if (getRewrite_table().get(ap1) != null) {
-			output_aps.removeAll(getRewrite_table().get(ap1));
+		if (rewrite_table.get(ap1) != null) {
+			output_aps.removeAll(rewrite_table.get(ap1));
 		}
-		if (getRewrite_table().get(ap2) != null) {
-			output_aps.removeAll(getRewrite_table().get(ap2));
+		if (rewrite_table.get(ap2) != null) {
+			output_aps.removeAll(rewrite_table.get(ap2));
 		}
 			
-		getRewrite_table().remove(ap1);
-		getRewrite_table().remove(ap2);
+		rewrite_table.remove(ap1);
+		rewrite_table.remove(ap2);
 		RewriteRule rule = (RewriteRule) rule_map.get(port);
 		int merged_rewrite = bdd.nat(merged_ap, rule.getField_bdd(), rule.getNew_pkt_bdd());
 		HashSet<Integer> merged_apset = new HashSet<Integer>();
 		merged_apset.add(merged_rewrite);
-		getRewrite_table().put(merged_ap, merged_apset);
+		rewrite_table.put(merged_ap, merged_apset);
 		output_aps.add(merged_rewrite);
 	}
 	
 	public boolean updateRewriteTable() throws Exception {
-		HashMap<Integer, HashSet<Integer>> old_rewrite_table = new HashMap<Integer, HashSet<Integer>>(getRewrite_table());
+		HashMap<Integer, HashSet<Integer>> old_rewrite_table = new HashMap<Integer, HashSet<Integer>>(rewrite_table);
 		for (int ap : old_rewrite_table.keySet()) {
-			HashSet<Integer> rewrited_aps = getRewrite_table().get(ap);
+			HashSet<Integer> rewrited_aps = rewrite_table.get(ap);
 			for (int rewrited_ap : rewrited_aps) {
 				if (!apk.hasAP(rewrited_ap)) {
 					apk.addPredicate(rewrited_ap);

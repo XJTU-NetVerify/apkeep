@@ -47,7 +47,6 @@ import java.util.Set;
 import apkeep.elements.ACLElement;
 import apkeep.elements.Element;
 import apkeep.elements.NATElement;
-import apkeep.exception.APInconsistentException;
 import apkeep.exception.APNotFoundException;
 import apkeep.exception.APSetNotFoundException;
 import apkeep.exception.MergeSelfException;
@@ -145,6 +144,7 @@ public class APKeeper {
 		
 		Set<PositionTuple> pts = new HashSet<>();
 		for(int index=0; index < ap_ports.get(ap).size();index++) {
+			if(ap_ports.get(ap).get(index).equals("default")) continue;
 			pts.add(new PositionTuple(id_element.get(index), ap_ports.get(ap).get(index)));
 		}
 		
@@ -262,9 +262,12 @@ public class APKeeper {
 		bddengine.ref(partb);
 		bddengine.deref(origin);
 		
-		if(!ap_ports.keySet().equals(AP)) {
-			throw new APInconsistentException("merge");
-		}
+		/*
+		 * enabling Consistent check will affect efficiency
+		 */
+//		if(!ap_ports.keySet().equals(AP)) {
+//			throw new APInconsistentException("merge");
+//		}
 	}
 	
 	public void updateTransferAP(PositionTuple pt1, PositionTuple pt2, int ap) throws APNotFoundException {
@@ -349,7 +352,11 @@ public class APKeeper {
 				if (one_ap == ap) continue;
 				if (!checkRWMergable(one_ap, ap)) continue;
 				int merged_ap = bddengine.or(ap, one_ap);
+				mergeable_aps--;
 				updateMergeAP(one_ap, ap, merged_ap);
+				if(aps.size() == 1) {
+					ports_to_merge.remove(ports);
+				}
 				return merged_ap;
 			}
 		}
@@ -403,9 +410,12 @@ public class APKeeper {
 		bddengine.deref(ap1);
 		bddengine.deref(ap2);
 		
-		if(!ap_ports.keySet().equals(AP)) {
-			throw new APInconsistentException("merge");
-		}
+		/*
+		 * enabling Consistent check will affect efficiency
+		 */
+//		if(!ap_ports.keySet().equals(AP)) {
+//			throw new APInconsistentException("merge");
+//		}
 	}
 	
 	public void updateMergeAPBatch (int merged_ap, HashSet<Integer> aps) throws Exception
@@ -432,8 +442,11 @@ public class APKeeper {
 		aps.clear();
 		aps.add(merged_ap);
 		
-		if(!ap_ports.keySet().equals(AP)) {
-			throw new APInconsistentException("merge");
-		}
+		/*
+		 * enabling Consistent check will affect efficiency
+		 */
+//		if(!ap_ports.keySet().equals(AP)) {
+//			throw new APInconsistentException("merge");
+//		}
 	}
 }

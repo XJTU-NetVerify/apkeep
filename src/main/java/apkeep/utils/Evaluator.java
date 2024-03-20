@@ -74,6 +74,11 @@ public class Evaluator {
 	String output_file;
 	FileWriter output_writer;
 	
+	// link failure
+	int total_links;
+	long construction_time;
+	long detection_time;
+	
 	public Evaluator(String net, String outputFile) {
 		name = net;
 		output_file = outputFile;
@@ -194,5 +199,19 @@ public class Evaluator {
 		System.out.println("Average update time: " + total_time/update_num/1000.0 + "us");
 		System.out.println(fast_update*100.0/update_num + "% < " + Parameters.FAST_UPDATE_THRESHOLD + "ms");	
 		System.out.println("Memory Usage: " + peak_memory/1000000 + "MB");
+	}
+	
+
+	public void addLinkFailure(int total_links2, long construction_time2, long detection_time2) {
+		total_links = total_links2;
+		construction_time = construction_time2;
+		detection_time = detection_time2;
+	}
+
+	public void printLinkFailureResults() {
+		System.out.println("Number of links " + total_links);
+		System.out.println("Average time to construct forwarding graph: " + construction_time / total_links / 1000000.0 + "ms");
+		System.out.println("Average time to detect loops: " + detection_time / total_links / 1000000.0 + "ms");
+		System.out.println("Average time in total: " + (construction_time + detection_time) / total_links / 1000000.0 + "ms");
 	}
 }

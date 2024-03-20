@@ -88,15 +88,15 @@ public class Test {
 	}
 
 	public static void main(String[] args) throws Exception {
-//		String name = "4switch";
+		String name = "4switch";
 //		String name = "airtel1";
 //		String name = "airtel2";
 //		String name = "internet2";
 //		String name = "stanford-noacl";
 //		String name = "purdue-noacl";
 //		String name = "stanford";
-		String name = "purdue";
-		int nat_num = 0;
+//		String name = "purdue";
+		int nat_num = 20;
 		String datasetFolder = Parameters.root_path+name;
 		String outFolder = datasetFolder+"/out.txt";
 		
@@ -152,6 +152,7 @@ public class Test {
 		if(name.equals("internet2") || name.equals("stanford-noacl")) {
 			if(nat_num > 0) {
 				updateFile = "/update+nat";
+//				updateFile = "/test.txt";
 				ArrayList<String> rules = readFile(datasetFolder+updateFile);
 				int nat_count = 0;
 				device_nats = new HashMap<>();
@@ -178,5 +179,8 @@ public class Test {
 		net.initializeNetwork(topo, devices, device_acls, vlan_ports, device_nats);
 		net.run(eva, datasetFolder+updateFile);
 		eva.printExpResults();
+		if(name.equals("4switch") || name.equals("airtel1-only-inserts"))
+		net.checkLinkFailure(eva, datasetFolder+"/check_link.txt");
+		eva.printLinkFailureResults();
 	}
 }

@@ -39,8 +39,10 @@
 package apkeep.checker;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import apkeep.core.Network;
@@ -64,6 +66,74 @@ public class Checker {
 		return loops.size();
 	}
 	
+	public ForwardingGraph constructFowardingGraph(PositionTuple pt1) {
+		Map<PositionTuple, Set<Integer>> port_aps = new HashMap<>();
+		Map<String, Set<PositionTuple>> node_ports = new HashMap<>();
+		
+		Element e = getElement(pt1.getDeviceName());
+		Set<Integer> aps = e.getPortAPs(pt1.getPortName());
+		
+		if (aps == null) return null;
+			
+		for (int ap : aps) {
+			Set<PositionTuple> pts = null;
+			try {
+				pts = net.getHoldPorts(ap);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			for (PositionTuple pt: pts) {
+				port_aps.putIfAbsent(pt, new HashSet<>());
+				port_aps.get(pt).add(ap);
+				
+				node_ports.putIfAbsent(pt.getDeviceName(), new HashSet<>());
+				node_ports.get(pt.getDeviceName()).add(pt);
+			}
+		}
+		
+		return new ForwardingGraph(port_aps, node_ports);
+	}
+	
+	public int checkProperty(ForwardingGraph g) {
+		loops.clear();
+		
+		for(PositionTuple pt : g.port_aps.keySet()) {
+			Set<Integer> aps = new HashSet<Integer>(g.port_aps.get(pt));
+			ArrayList<PositionTuple> history = new ArrayList<PositionTuple>();
+			traverseFowardingGraph(pt, aps, history, g);
+		}
+		
+		return loops.size();
+	}
+	
+	private void traverseFowardingGraph(PositionTuple cur_hop, Set<Integer> fwd_aps, 
+			ArrayList<PositionTuple> history,
+			ForwardingGraph g) {
+		if(fwd_aps.isEmpty()) return;
+		/*
+		 * check loops
+		 */
+		if(checkLoop(history, cur_hop, fwd_aps, null)) return;
+		history.add(cur_hop);
+		
+		/*
+		 * look up l1-topology for connected node
+		 */
+		if(net.getConnectedPorts(cur_hop) == null) return;
+		for(PositionTuple connected_pt : net.getConnectedPorts(cur_hop)) {
+			String next_node = connected_pt.getDeviceName();
+			if(!g.node_ports.containsKey(next_node)) continue;
+			for(PositionTuple next_hop : g.node_ports.get(next_node)) {
+				if(next_hop.equals(connected_pt)) continue;
+				Set<Integer> aps = new HashSet<>(g.port_aps.get(next_hop));
+				aps.retainAll(fwd_aps);
+				ArrayList<PositionTuple> new_history = new ArrayList<>(history);
+				new_history.add(connected_pt);
+				traverseFowardingGraph(next_hop, aps, new_history, g);
+			}
+		}
+	}
+
 	public void checkProperty(String element_name, Set<Integer> moved_aps) {
 		loops.clear();
 		
