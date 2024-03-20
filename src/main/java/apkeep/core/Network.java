@@ -39,13 +39,10 @@
 package apkeep.core;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -62,7 +59,6 @@ import apkeep.exception.ElementNotFoundException;
 import apkeep.rules.Rule;
 import apkeep.utils.Evaluator;
 import apkeep.utils.Logger;
-import apkeep.utils.Parameters;
 import common.BDDACLWrapper;
 import common.PositionTuple;
 
@@ -84,8 +80,6 @@ public class Network {
 	protected HashSet<String> acl_node_names;
 	private HashSet<String> nat_element_names;
 	
-	private Map<Integer, Set<Integer>> rewrite_table;
-	
 	/*
 	 * The BDD data structure for encoding packet sets with Boolean formula
 	 */
@@ -99,9 +93,9 @@ public class Network {
 
 	private Checker checker;
 	
-	public Network(String network_name, String op_mode) {
+	public Network(String network_name) {
 		name = network_name;
-		if(op_mode.equals("division")) division_activated = true;
+		division_activated = false;
 		
 		topology = new HashMap<>();
 		elements = new HashMap<>();
@@ -113,7 +107,7 @@ public class Network {
 		acl_node_names = new HashSet<>();
 		nat_element_names = new HashSet<>();
 		
-		rewrite_table = new HashMap<>();
+		new HashMap<>();
 
 		Element.setBDDWrapper(bdd_engine);
 		
@@ -121,7 +115,7 @@ public class Network {
 	}
 	
 	public void initializeNetwork(ArrayList<String> l1_links, 
-			Set<String> devices,
+			List<String> devices,
 			Map<String, Set<String>> device_acls,
 			Map<String, Map<String, Set<String>>> vlan_ports,
 			Map<String, Set<String>> device_nats) {
@@ -184,10 +178,6 @@ public class Network {
 		}
 	}
 	
-	public boolean containsPort(PositionTuple pt) {
-		return topology.containsKey(pt);
-	}
-	
 	public HashSet<PositionTuple> getConnectedPorts(PositionTuple pt){
 		return topology.get(pt);
 	}
@@ -206,7 +196,7 @@ public class Network {
 		}
 	}
 	
-	private void addFWDElement(Set<String> devices) {
+	private void addFWDElement(List<String> devices) {
 		if(devices == null) return;
 		for(String element : devices) {
 			if(elements.containsKey(element)) continue;
@@ -232,6 +222,7 @@ public class Network {
 	
 	private void addACLs(Map<String, Set<String>> device_acls) {
 		if(device_acls == null) return;
+		division_activated = true;
 		for(String device : device_acls.keySet()) {
 			for(String aclname : device_acls.get(device)) {
 				String element = device+"_"+aclname;
@@ -247,10 +238,6 @@ public class Network {
 			ForwardElement e = (ForwardElement) elements.get(device);
 			e.addVlanPorts(vlan_ports.get(device));
 		}
-	}
-	
-	public Collection<Element> getAllElements() {
-		return elements.values();
 	}
 	
 	public Element getElement(String deviceName) {
@@ -285,25 +272,9 @@ public class Network {
 			return tokens[0];
 		}
 	}
-	
-	public Set<String> getNATNames(){
-		return nat_element_names;
-	}
-	
-	public Set<String> getACLNodes() {
-		return acl_node_names;
-	}
 
 	public Set<PositionTuple> getHoldPorts(int ap) throws Exception {
 		return fwd_apk.getHoldPorts(ap);
-	}
-	
-	public Set<PositionTuple> getACLHoldPorts(int ap) throws Exception {
-		return acl_apk.getHoldPorts(ap);
-	}
-	
-	public int getFWDAPNum() {
-		return fwd_apk.getAPNum();
 	}
 	
 	public int getAPNum() {
@@ -313,75 +284,6 @@ public class Network {
 		else {
 			return fwd_apk.getAPNum();
 		}
-	}
-
-	public Set<PositionTuple> mapElementPortIntoTopoPort(Set<PositionTuple> hold_ports) {
-		Set<PositionTuple> pts = new HashSet<>();
-		for(PositionTuple pt : hold_ports) {
-			if(elements.get(pt.getDeviceName()) instanceof ACLElement) {
-				pts.addAll(mapACLElementIntoNodes(pt));
-			}
-			else if(pt.getPortName().toLowerCase().startsWith("vlan")) {
-				pts.addAll(mapVlanIntoPhyPorts(pt));
-			}
-			else {
-				pts.add(pt);
-			}
-		}
-		return pts;
-	}
-
-	private Set<PositionTuple> mapACLElementIntoNodes(PositionTuple pt) {
-		Set<PositionTuple> pts = new HashSet<>();
-		for(String aclname : acl_node_names) {
-			if(aclname.startsWith(pt.getDeviceName())) {
-				pts.add(new PositionTuple(aclname, pt.getPortName()));
-			}
-		}
-		return pts;
-	}
-	public Set<PositionTuple> mapVlanIntoPhyPorts(PositionTuple pt) {
-		Set<PositionTuple> pts = new HashSet<>();
-		ForwardElement e = (ForwardElement) elements.get(pt.getDeviceName());
-		for(String port : e.getVlanPorts(pt.getPortName())) {
-			pts.add(new PositionTuple(pt.getDeviceName(), port));
-		}
-		return pts;
-	}
-	
-	public Set<Integer> rewriteAllAPs(Set<Integer> origin_aps) {
-		if(nat_element_names.isEmpty()) return origin_aps;
-		if(!isRewritable(origin_aps)) return origin_aps;
-		
-		Set<Integer> rewrited_aps = new HashSet<>();
-		while(true) {
-			for(int ap : origin_aps) {
-				rewrited_aps.addAll(rewriteAP(ap));
-			}
-			rewrited_aps.removeAll(origin_aps);
-			if(rewrited_aps.isEmpty()) break;
-			origin_aps.addAll(rewrited_aps);
-			rewrited_aps.clear();
-		}
-		return origin_aps;
-	}
-	
-	public boolean isRewritable(Set<Integer> aps) {
-		rewrite_table.clear();
-		for(String nat_name : nat_element_names) {
-			NATElement nat = (NATElement) elements.get(nat_name);
-			rewrite_table.putAll(nat.getRewrite_table());
-		}
-		
-		HashSet<Integer> rewitable_aps = new HashSet<Integer>(rewrite_table.keySet());
-		rewitable_aps.retainAll(aps);
-		
-		return !rewitable_aps.isEmpty();
-	}
-	
-	public Set<Integer> rewriteAP(int ap){
-		if(!rewrite_table.containsKey(ap)) return new HashSet<>();
-		return rewrite_table.get(ap);
 	}
 	
 	public void run(Evaluator eva, List<String> rules) throws Exception {
@@ -518,11 +420,8 @@ public class Network {
 	/* answer "what if" questions for each possible link failure
 	 * for each link, and for each 
 	 */
-	public void checkLinkFailure(Evaluator eva, String output) throws IOException
+	public void checkLinkFailure(Evaluator eva) throws IOException
 	{
-		File output_file = new File(output);
-		FileWriter output_writer = new FileWriter(output_file, true);
-		
 		Checker checker = new Checker(this);
 
 		int total_links = 0;
@@ -542,11 +441,6 @@ public class Network {
 				System.out.println("Link " + pt1 + "->" + pt2 + ":" + (t3-t1)/1000000.0 + "ms");
 			}
 		}
-		output_writer.write(total_links + " " 
-				+ construction_time / total_links / 1000000.0 + " " 
-				+ detection_time / total_links / 1000000.0 + " " 
-				+ (construction_time + detection_time) / total_links / 1000000.0 + "\n");
-		output_writer.close();
 		
 		eva.addLinkFailure(total_links, construction_time, detection_time);
 	}

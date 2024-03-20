@@ -62,8 +62,8 @@ public class Checker {
 		loops = new HashSet<>();
 	}
 	
-	public int getLoops() {
-		return loops.size();
+	public Set<Loop> getLoops() {
+		return loops;
 	}
 	
 	public ForwardingGraph constructFowardingGraph(PositionTuple pt1) {

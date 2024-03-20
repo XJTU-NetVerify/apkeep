@@ -41,6 +41,11 @@ package apkeep.utils;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.util.HashSet;
+import java.util.Set;
+
+import apkeep.checker.Loop;
 
 public class Evaluator {
 	
@@ -49,7 +54,7 @@ public class Evaluator {
 	int update_num;
 	int fast_update;
 	
-	int loop_num;
+	Set<Loop> loops;
 	
 	int ap_insert_num;
 	int ap_end_num;
@@ -82,6 +87,7 @@ public class Evaluator {
 	public Evaluator(String net, String outputFile) {
 		name = net;
 		output_file = outputFile;
+		loops = new HashSet<>();
 	}
 	
 	public boolean isInsertFinish() {
@@ -96,8 +102,8 @@ public class Evaluator {
 		ap_insert_num = num;
 	}
 	
-	public void addLoops(int loops) {
-		loop_num += loops;
+	public void addLoops(Set<Loop> loops) {
+		this.loops.addAll(loops);
 	}
 	
 	public void startUpdate() {
@@ -140,7 +146,7 @@ public class Evaluator {
 		update_num = 0;
 		fast_update = 0;
 		
-		loop_num = 0;
+		loops.clear();
 		
 		total_time = 0;
 		ppm_time = 0;
@@ -194,11 +200,17 @@ public class Evaluator {
 		System.out.println("Number of APs after insert: " + ap_insert_num);
 		System.out.println("Number of APs after update: " + ap_end_num);
 		
-		System.out.println("Number of loops: " + loop_num);
+		System.out.println("Number of loops: " + loops.size());
 
 		System.out.println("Average update time: " + total_time/update_num/1000.0 + "us");
 		System.out.println(fast_update*100.0/update_num + "% < " + Parameters.FAST_UPDATE_THRESHOLD + "ms");	
 		System.out.println("Memory Usage: " + peak_memory/1000000 + "MB");
+	}
+	
+	public void printLoop(PrintStream printer) {
+		for(Loop loop : loops) {
+			printer.println(loop);
+		}
 	}
 	
 

@@ -51,12 +51,10 @@ public class Parameters {
 	public static int TOTAL_AP_THRESHOLD = 500;
 	public static int LOW_MERGEABLE_AP_THRESHOLD = 10;
 	public static int HIGH_MERGEABLE_AP_THRESHOLD = 50;
-	public static final double FAST_UPDATE_THRESHOLD = 0.25;
+	public static double FAST_UPDATE_THRESHOLD = 0.25;
 
 	public static int PRINT_RESULT_INTERVAL = 100000;
 //	public static int PRINT_RESULT_INTERVAL = 10000;
 //	public static int PRINT_RESULT_INTERVAL = 1;
 	public static int WRITE_RESULT_INTERVAL = 1;
-	
-	public static String root_path = "F:/Experiments/apkeep-opensource/";
 }
