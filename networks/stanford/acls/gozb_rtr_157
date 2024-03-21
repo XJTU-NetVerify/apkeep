@@ -1,0 +1,6 @@
+access-list 157 deny 0 255 200.87.13.14 null null null any null null null -1 65535
+access-list 157 deny 0 255 202.181.206.18 null null null any null null null -1 65534
+access-list 157 deny 0 255 221.132.67.163 null null null any null null null -1 65533
+access-list 157 deny 0 255 210.132.185.87 null null null any null null null -1 65532
+access-list 157 deny 0 255 217.78.63.15 null null null any null null null -1 65531
+access-list 157 permit 0 255 any null null null any null null null -1 65530

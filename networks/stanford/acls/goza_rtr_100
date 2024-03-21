@@ -1,0 +1,3 @@
+access-list 100 permit 0 255 172.17.0.0 0.0.255.255 null null 172.27.16.32 0.0.0.31 null null -1 65535
+access-list 100 deny 0 255 172.17.0.0 0.0.255.255 null null any null null null -1 65534
+access-list 100 permit 0 255 any null null null any null null null -1 65533

@@ -1,0 +1,1413 @@
+pozb_rtr vlan645 te2/3 te3/4 te3/3
+pozb_rtr vlan800 te2/3 te3/4 te3/3
+pozb_rtr vlan647 te2/3 te3/4 te3/3
+pozb_rtr vlan1709 po35 te3/3
+pozb_rtr vlan400 te2/3 te3/4 te3/3
+pozb_rtr vlan1707 po35 te3/3
+pozb_rtr vlan1708 po35 te3/3
+pozb_rtr vlan66 te2/3 te3/3
+pozb_rtr vlan880 te2/3 te3/3
+pozb_rtr vlan1706 po35 te3/3
+pozb_rtr vlan760 te2/3 te3/4 te3/3
+pozb_rtr vlan640 te2/3 te3/4 te3/3
+pozb_rtr vlan1704 po35 te3/3
+pozb_rtr vlan480 te2/3 te3/3
+pozb_rtr vlan1702 po35 te3/3
+pozb_rtr vlan360 te2/3 te3/4 te3/3
+pozb_rtr vlan630 te2/3 te3/3
+pozb_rtr vlan1718 po35 te3/3
+pozb_rtr vlan1719 po35 te3/3
+pozb_rtr vlan1716 po35 te3/3
+pozb_rtr vlan990 te2/3 te3/3
+pozb_rtr vlan199 te3/3
+pozb_rtr vlan870 te2/3 te3/3
+pozb_rtr vlan1714 po35 te3/3
+pozb_rtr vlan750 te2/3 te3/4 te3/3 gi4/3
+pozb_rtr vlan1715 po35 te3/3
+pozb_rtr vlan1712 po35 te3/3
+pozb_rtr vlan1713 po35 te3/3
+pozb_rtr vlan1710 po35 te3/3
+pozb_rtr vlan350 te2/3 te3/4 te3/3
+pozb_rtr vlan1711 po35 te3/3
+pozb_rtr vlan740 te2/3 te3/4 te3/3 gi4/3
+pozb_rtr vlan620 te2/3 te3/4 te3/3
+pozb_rtr vlan1729 po35 te3/3
+pozb_rtr vlan1720 po35 te3/3
+pozb_rtr vlan340 te2/3 te3/4 te3/3
+pozb_rtr vlan1727 po35 te3/3
+pozb_rtr vlan980 te2/3 te3/3
+pozb_rtr vlan1726 po35 te3/3
+pozb_rtr vlan860 te2/3 te3/3
+pozb_rtr vlan1724 po35 te3/3
+pozb_rtr vlan1721 po35 te3/3
+pozb_rtr vlan1722 po35 te3/3
+pozb_rtr vlan730 te2/3 te3/4 te3/3
+pozb_rtr vlan450 te2/3 te3/4 te3/3
+pozb_rtr vlan330 te2/3 te3/4 te3/3
+pozb_rtr vlan1736 po35 te3/3
+pozb_rtr vlan970 te2/3 te3/4 te3/3
+pozb_rtr vlan2703 te2/3 te3/4 te3/3
+pozb_rtr vlan1735 po35 te3/3
+pozb_rtr vlan690 te2/3 te3/4 te3/3
+pozb_rtr vlan3 te2/1
+pozb_rtr vlan208 te2/3 te3/3
+pozb_rtr vlan960 te2/3 te3/4 te3/3
+pozb_rtr vlan202 te2/3 te3/3
+pozb_rtr vlan840 te2/3 te3/4 te3/3
+pozb_rtr vlan720 te2/3 te3/4 te3/3
+pozb_rtr vlan209 gi4/47 te3/3
+pozb_rtr vlan849 te2/3 te3/4 te3/3
+pozb_rtr vlan1103 po35 te3/3
+pozb_rtr vlan1104 po35 te3/3
+pozb_rtr vlan1102 po35 te3/3
+pozb_rtr vlan1100 po35 te3/3
+pozb_rtr vlan320 te2/3 te3/4 te3/3
+pozb_rtr vlan1109 po35 te3/3
+pozb_rtr vlan1107 po35 te3/3
+pozb_rtr vlan1108 po35 te3/3
+pozb_rtr vlan1105 po35 te3/3
+pozb_rtr vlan2 te3/1
+pozb_rtr vlan680 te2/3 te3/4 te3/3
+pozb_rtr vlan1106 po35 te3/3
+pozb_rtr vlan1 te2/3 te3/3
+pozb_rtr vlan678 te2/3 te3/4 te3/3
+pozb_rtr vlan679 te2/3 te3/4 te3/3
+pozb_rtr vlan674 te2/3 te3/4 te3/3
+pozb_rtr vlan950 te2/3 te3/4 te3/3
+pozb_rtr vlan675 te2/3 te3/4 te3/3
+pozb_rtr vlan676 te2/3 te3/4 te3/3
+pozb_rtr vlan830 te2/3 te3/4 te3/3
+pozb_rtr vlan710 te2/3 te3/3
+pozb_rtr vlan677 te2/3 te3/4 te3/3
+pozb_rtr vlan1115 po35 te3/3
+pozb_rtr vlan17 gi1/1
+pozb_rtr vlan1112 po35 te3/3
+pozb_rtr vlan16 gi1/1
+pozb_rtr vlan1110 po35 te3/3
+pozb_rtr vlan1111 po35 te3/3
+pozb_rtr vlan670 te2/3 te3/4 te3/3
+pozb_rtr vlan10 te2/3 te2/4 te3/3
+pozb_rtr vlan672 te2/3 te3/4 te3/3
+pozb_rtr vlan310 te2/3 te3/4 te3/3
+pozb_rtr vlan673 te2/3 te3/4 te3/3
+pozb_rtr vlan1118 po35 te3/3
+pozb_rtr vlan1119 po35 te3/3
+pozb_rtr vlan2603 te2/3 te3/4 te3/3
+pozb_rtr vlan1116 po35 te3/3
+pozb_rtr vlan1117 po35 te3/3
+pozb_rtr vlan700 te2/3 te3/3
+pozb_rtr vlan945 te2/3 te3/4 te3/3
+pozb_rtr vlan428 te2/3 te3/4 te3/3
+pozb_rtr vlan300 te2/3 te3/4 te3/3
+pozb_rtr vlan665 te2/3 te3/4 te3/3
+pozb_rtr vlan940 te2/3 te3/4 te3/3
+pozb_rtr vlan820 te2/3 te3/3
+pozb_rtr vlan429 te2/3 te3/4 te3/3
+pozb_rtr vlan1125 po35 te3/3
+pozb_rtr vlan1126 po35 te3/3
+pozb_rtr vlan1123 po35 te3/3
+pozb_rtr vlan1124 po35 te3/3
+pozb_rtr vlan1121 po35 te3/3
+pozb_rtr vlan1122 po35 te3/3
+pozb_rtr vlan660 te2/3 te3/4 te3/3
+pozb_rtr vlan420 te2/3 te3/4 te3/3
+pozb_rtr vlan380 te2/3 te3/3
+pozb_rtr vlan810 te2/3 te3/4 te3/3
+pozb_rtr vlan410 te2/3 te3/4 te3/3
+pozb_rtr vlan930 te2/3 te3/4 te3/3
+pozb_rtr vlan1775 po35 te3/3
+pozb_rtr vlan890 te2/3 te3/4 te3/3
+pozb_rtr vlan770 te2/3 te3/4 te3/3
+pozb_rtr vlan650 te2/3 te3/4 te3/3
+pozb_rtr vlan370 te2/3 te3/4 te3/3
+bbra_rtr vlan249 gi4/16
+bbra_rtr vlan91 gi4/9
+bbra_rtr vlan866 gi5/1
+bbra_rtr vlan5 gi5/1
+bbra_rtr vlan322 gi4/2
+bbra_rtr vlan861 gi5/1
+bbra_rtr vlan564 gi4/16 te6/1 te7/2
+bbra_rtr vlan267 gi4/3
+bbra_rtr vlan268 gi4/3
+bbra_rtr vlan566 gi4/16 te6/1 te7/2
+bbra_rtr vlan92 gi4/9
+bbra_rtr vlan9 gi4/13
+bbra_rtr vlan864 gi3/9 te1/2
+bbra_rtr vlan902 gi4/7 gi5/1
+bbra_rtr vlan22 gi4/15 gi4/14 te6/1 gi4/9 te7/2
+bbra_rtr vlan285 gi4/16
+bbra_rtr vlan320 gi4/3
+bbra_rtr vlan64 te1/1 gi4/9 te7/4
+bbra_rtr vlan42 te6/1 gi4/9 te7/2
+bbra_rtr vlan881 gi4/16
+bbra_rtr vlan123 gi4/10
+bbra_rtr vlan882 gi4/16
+bbra_rtr vlan585 gi4/16
+bbra_rtr vlan281 gi4/16
+bbra_rtr vlan2 gi4/8 gi4/16 gi5/1 te1/2 te1/1 te1/4 te1/3 te6/1 te6/3 te7/2 te6/2 te7/4 te6/4 te7/3 gi4/13
+bbra_rtr vlan580 gi4/16
+bbra_rtr vlan557 gi4/16 gi5/1
+bbra_rtr vlan278 gi4/3
+bbra_rtr vlan555 gi4/16
+bbra_rtr vlan82 te6/1 te7/2 gi4/12
+bbra_rtr vlan81 te6/1 te7/2
+bbra_rtr vlan19 gi4/16 gi4/5 gi4/3 gi5/1
+bbra_rtr vlan290 gi4/16
+bbra_rtr vlan17 gi4/6
+bbra_rtr vlan296 gi4/16
+bbra_rtr vlan11 gi4/16 te7/1
+bbra_rtr vlan275 gi4/3
+bbra_rtr vlan297 gi4/16
+bbra_rtr vlan10 gi4/4
+bbra_rtr vlan277 gi4/3
+bbra_rtr vlan292 gi4/16
+bbra_rtr vlan590 gi4/9 gi4/11
+bbra_rtr vlan293 gi4/16
+bbra_rtr vlan272 gi4/16 gi4/3
+bbra_rtr vlan294 gi4/16
+bbra_rtr vlan13 gi3/16
+bbra_rtr vlan295 gi4/16
+bbra_rtr vlan12 gi4/16
+cozb_rtr vlan205 te3/3 gi1/2
+cozb_rtr vlan3 te2/1
+cozb_rtr vlan448 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan206 te3/3 gi1/2
+cozb_rtr vlan207 te3/3 gi1/2
+cozb_rtr vlan208 te2/3 te3/3 gi1/2
+cozb_rtr vlan549 te3/3 gi1/2
+cozb_rtr vlan322 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan564 te3/1
+cozb_rtr vlan201 te3/3 gi1/2
+cozb_rtr vlan466 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan444 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan488 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan202 te3/3 gi1/2
+cozb_rtr vlan203 te3/3 gi1/2
+cozb_rtr vlan468 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan204 te3/3 gi1/2
+cozb_rtr vlan209 gi1/2
+cozb_rtr vlan22 te3/1
+cozb_rtr vlan440 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan484 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan320 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan2 te3/1
+cozb_rtr vlan580 te2/1
+cozb_rtr vlan1 gi1/2
+cozb_rtr vlan23 te2/1
+cozb_rtr vlan436 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan558 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan316 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan476 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan432 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan499 te3/3 gi1/2
+cozb_rtr vlan554 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan83 te2/1
+cozb_rtr vlan456 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan82 te3/1
+cozb_rtr vlan556 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan16 gi1/1
+cozb_rtr vlan472 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan473 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan550 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan10 te2/3 te2/4 te3/3
+cozb_rtr vlan474 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan430 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan452 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan552 te2/3 te3/4 te3/3 gi1/2
+cozb_rtr vlan475 te2/3 te3/4 te3/3 gi1/2
+gozb_rtr vlan920 te2/3 te3/3
+gozb_rtr vlan800 te2/3 te3/4 te3/3
+gozb_rtr vlan525 te2/3 te3/4 te3/3
+gozb_rtr vlan520 te2/3 te3/4 te3/3
+gozb_rtr vlan1541 gi4/7 po45
+gozb_rtr vlan1025 po45 te3/3
+gozb_rtr vlan1540 gi4/7 po45
+gozb_rtr vlan880 te2/3 te3/4 te3/3
+gozb_rtr vlan881 te2/3 te3/4 te3/3
+gozb_rtr vlan760 te2/3 te3/3
+gozb_rtr vlan1545 po45 te3/3
+gozb_rtr vlan514 te2/3 te3/4 te3/3
+gozb_rtr vlan910 te2/3 te3/4 te3/3
+gozb_rtr vlan999 te2/3 te3/4 te3/3
+gozb_rtr vlan510 te2/3 te3/4 te3/3
+gozb_rtr vlan598 te2/3 te3/4 te3/3
+gozb_rtr vlan517 te2/3 te3/4 te3/3
+gozb_rtr vlan190 te2/3 te3/4 te3/3
+gozb_rtr vlan594 te2/3 te3/4 te3/3
+gozb_rtr vlan198 te2/3 te3/4 te3/3
+gozb_rtr vlan990 te2/3 te3/3
+gozb_rtr vlan199 te3/3 gi1/2
+gozb_rtr vlan870 te2/3 te3/4 te3/3
+gozb_rtr vlan596 te2/3 te3/4 te3/3
+gozb_rtr vlan470 te2/3 te3/4 te3/3 gi1/2
+gozb_rtr vlan592 te2/3 te3/4 te3/3
+gozb_rtr vlan900 te2/3 te3/3
+gozb_rtr vlan223 te2/3 te3/4 te3/3
+gozb_rtr vlan50 te2/3 gi4/19 te3/3 gi4/20
+gozb_rtr vlan500 te2/3 te3/3
+gozb_rtr vlan1173 gi4/6 po45
+gozb_rtr vlan461 te2/3 te3/4 te3/3
+gozb_rtr vlan220 te2/3 te3/4 te3/3
+gozb_rtr vlan980 gi4/7 te2/3 te3/4 te3/3
+gozb_rtr vlan860 te2/3 te3/4 te3/3
+gozb_rtr vlan580 te2/3 te3/4 te3/3
+gozb_rtr vlan459 te2/3 te3/4 te3/3
+gozb_rtr vlan850 te2/3 te3/4 te3/3
+gozb_rtr vlan455 te2/3 te3/4 te3/3
+gozb_rtr vlan730 gi4/16 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan731 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan732 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan1181 gi4/6 po45 te3/3
+gozb_rtr vlan1180 gi4/6 po45
+gozb_rtr vlan290 te2/3 te3/4 te3/3
+gozb_rtr vlan1178 gi4/6 po45
+gozb_rtr vlan1179 gi4/6 po45
+gozb_rtr vlan1176 gi4/6 po45
+gozb_rtr vlan1177 gi4/6 po45
+gozb_rtr vlan1174 gi4/6 po45
+gozb_rtr vlan1175 gi4/6 po45
+gozb_rtr vlan450 te2/3 te3/4 te3/3
+gozb_rtr vlan210 te2/3 te3/4 te3/3
+gozb_rtr vlan452 gi4/7 te2/3 te3/4 te3/3
+gozb_rtr vlan453 gi4/7 te2/3 te3/4 te3/3
+gozb_rtr vlan970 gi4/7 te2/3 te3/4 te3/3
+gozb_rtr vlan2702 te2/3 te3/4 te3/3
+gozb_rtr vlan570 te2/3 te3/4 te3/3
+gozb_rtr vlan722 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan723 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan206 te2/3 te3/3
+gozb_rtr vlan3 te2/1
+gozb_rtr vlan724 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan725 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan208 te2/3 te3/3
+gozb_rtr vlan960 gi4/7 te2/3 te3/4 te3/3
+gozb_rtr vlan201 te2/3 te3/3
+gozb_rtr vlan840 te2/3 te3/4 te3/3
+gozb_rtr vlan720 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan1509 po45 te3/3
+gozb_rtr vlan721 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan1071 gi4/6 po45 te3/3
+gozb_rtr vlan1072 gi4/6 po45 te3/3
+gozb_rtr vlan726 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan209 gi1/2
+gozb_rtr vlan727 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan1070 gi4/6 po45
+gozb_rtr vlan728 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan729 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan1069 gi4/6 po45 te3/3
+gozb_rtr vlan1507 po45 te3/3
+gozb_rtr vlan560 te2/3 te3/4 te3/3
+gozb_rtr vlan1505 po45 te3/3
+gozb_rtr vlan320 te2/3 te3/4 te3/3
+gozb_rtr vlan562 te2/3 te3/4 te3/3
+gozb_rtr vlan1506 po45 te3/3
+gozb_rtr vlan1504 po45 te3/3
+gozb_rtr vlan1501 po45 te3/3
+gozb_rtr vlan2 te3/1
+gozb_rtr vlan1502 po45 te3/3
+gozb_rtr vlan1 te2/3 te3/3
+gozb_rtr vlan711 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan712 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan795 te2/3 te3/3
+gozb_rtr vlan950 gi4/7 te2/3 te3/3
+gozb_rtr vlan830 te2/3 te3/4 te3/3
+gozb_rtr vlan710 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan839 te2/3 te3/4 te3/3
+gozb_rtr vlan1510 po45 te3/3
+gozb_rtr vlan1114 po45 te3/3
+gozb_rtr vlan1599 po45 te3/3
+gozb_rtr vlan17 gi4/17 gi4/16 gi4/15 gi4/5 gi4/14 gi4/19 gi4/18 gi1/1 gi4/4 gi4/3 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan16 gi1/1
+gozb_rtr vlan1518 po45 te3/3
+gozb_rtr vlan791 gi4/5 te2/3 te3/4 te3/3 gi4/4
+gozb_rtr vlan1519 po45 te3/3
+gozb_rtr vlan10 te2/3 te2/4 te3/3
+gozb_rtr vlan550 te2/3 te3/4 te3/3
+gozb_rtr vlan792 gi4/5 te2/3 te3/4 gi4/4
+gozb_rtr vlan1516 po45 te3/3
+gozb_rtr vlan1912 po45 te3/3
+gozb_rtr vlan1517 po45 te3/3
+gozb_rtr vlan1913 po45 te3/3
+gozb_rtr vlan1514 po45 te3/3
+gozb_rtr vlan1515 po45 te3/3
+gozb_rtr vlan2602 te2/3 te3/4 te3/3
+gozb_rtr vlan790 gi4/5 te2/3 te3/3 gi4/4
+gozb_rtr vlan700 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan701 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan702 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan703 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan785 te2/3 te3/4 te3/3 gi4/3 gi4/12
+gozb_rtr vlan665 te2/3 te3/4 te3/3
+gozb_rtr vlan940 gi4/7 gi4/6 te2/3 te3/4 te3/3
+gozb_rtr vlan820 te2/3 te3/3 gi4/3
+gozb_rtr vlan941 gi4/6 te2/3 te3/4 te3/3
+gozb_rtr vlan708 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan709 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan704 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan705 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan706 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan707 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+gozb_rtr vlan780 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan660 te2/3 te3/4 te3/3
+gozb_rtr vlan661 te2/3 te3/4 te3/3
+gozb_rtr vlan540 te2/3 te3/4 te3/3
+gozb_rtr vlan420 te2/3 te3/3
+gozb_rtr vlan810 te2/3 te3/4 te3/3
+gozb_rtr vlan531 te2/3 te3/4 te3/3
+gozb_rtr vlan532 te2/3 te3/4 te3/3
+gozb_rtr vlan533 te2/3 te3/4 te3/3
+gozb_rtr vlan534 te2/3 te3/4 te3/3
+gozb_rtr vlan1533 po45 gi4/12
+gozb_rtr vlan770 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan1538 gi4/17 po45
+gozb_rtr vlan530 te2/3 te3/4 te3/3
+gozb_rtr vlan1539 po45 gi4/18
+gozb_rtr vlan490 te2/3 te3/4 te3/3 gi4/3
+gozb_rtr vlan1536 gi4/15 po45
+gozb_rtr vlan1537 gi4/16 po45
+gozb_rtr vlan1534 po45 gi4/13
+gozb_rtr vlan250 te2/3 te3/4 te3/3
+gozb_rtr vlan1535 gi4/14 po45
+rozb_rtr vlan722 te2/3 te3/3
+rozb_rtr vlan3 te2/1
+rozb_rtr vlan800 te3/4 te3/3
+rozb_rtr vlan206 te3/3
+rozb_rtr vlan801 te3/4 te3/3
+rozb_rtr vlan208 te2/3 te3/3
+rozb_rtr vlan322 te3/4 te3/3
+rozb_rtr vlan400 te2/3 te3/4 te3/3
+rozb_rtr vlan720 te2/3 te3/4 te3/3
+rozb_rtr vlan600 te3/4 te3/3
+rozb_rtr vlan209 gi4/47
+rozb_rtr vlan440 te3/4 te3/3
+rozb_rtr vlan760 te2/3 te3/4 te3/3
+rozb_rtr vlan480 te2/3 te3/4 te3/3
+rozb_rtr vlan2 te3/1
+rozb_rtr vlan680 te2/3 te3/4 te3/3
+rozb_rtr vlan1 te2/3
+rozb_rtr vlan755 te2/3 te3/3
+rozb_rtr vlan279 te3/3
+rozb_rtr vlan950 te2/3 te3/3
+rozb_rtr vlan710 te2/3 te3/4 te3/3
+rozb_rtr vlan952 te2/3 te3/3
+rozb_rtr vlan1281 po25 te3/3
+rozb_rtr vlan715 te2/3 te3/4 te3/3
+rozb_rtr vlan1235 po25 te3/3
+rozb_rtr vlan17 gi1/1
+rozb_rtr vlan390 te3/4 te3/3
+rozb_rtr vlan16 gi1/1
+rozb_rtr vlan1230 po25 te3/3
+rozb_rtr vlan670 te2/3 te3/4 te3/3
+rozb_rtr vlan671 te3/4 te3/3
+rozb_rtr vlan10 te2/3 te2/4 te3/3
+rozb_rtr vlan430 te3/4 te3/3
+rozb_rtr vlan750 te2/3 te3/4 te3/3
+rozb_rtr vlan992 te2/3 te3/4 te3/3
+rozb_rtr vlan2604 te2/3 te3/4 gi4/3
+rozb_rtr vlan590 te3/4 te3/3
+rozb_rtr vlan470 te3/4 te3/3
+rozb_rtr vlan790 te3/4 te3/3
+rozb_rtr vlan700 te2/3 te2/2 te3/3
+rozb_rtr vlan740 te2/3 te3/4 te3/3
+rozb_rtr vlan940 te2/3 te3/4 te3/3
+rozb_rtr vlan468 te3/4 te3/3
+rozb_rtr vlan1202 po25 te3/3
+rozb_rtr vlan1203 po25 te3/3
+rozb_rtr vlan1201 po25 te3/3
+rozb_rtr vlan780 te2/3 te3/4 te3/3
+rozb_rtr vlan660 te2/3 te3/4 te3/3
+rozb_rtr vlan781 te2/3 te3/4 te3/3
+rozb_rtr vlan1208 po25 te3/3
+rozb_rtr vlan980 te2/3 te3/4 te3/3
+rozb_rtr vlan1209 po25 te3/3
+rozb_rtr vlan420 te2/3 te3/4 te3/3
+rozb_rtr vlan1206 po25 te3/3
+rozb_rtr vlan1207 po25 te3/3
+rozb_rtr vlan1204 po25 te3/3
+rozb_rtr vlan580 te3/4 te3/3
+rozb_rtr vlan460 te3/4 te3/3
+rozb_rtr vlan1205 po25 te3/3
+rozb_rtr vlan810 te2/3 te3/4 te3/3
+rozb_rtr vlan339 te2/3 te3/3
+rozb_rtr vlan410 te2/3 te3/4 te3/3
+rozb_rtr vlan730 te2/3 te3/4 te3/3
+rozb_rtr vlan610 te3/4 te3/3
+rozb_rtr vlan815 te2/3 te3/4 te3/3
+rozb_rtr vlan1213 po25 te3/3
+rozb_rtr vlan1214 po25 te3/3
+rozb_rtr vlan1211 po25 te3/3
+rozb_rtr vlan1212 po25 te3/3
+rozb_rtr vlan1210 po25 te3/3
+rozb_rtr vlan890 te2/3 te3/4 te3/3
+rozb_rtr vlan450 te2/3 te3/3
+rozb_rtr vlan770 te2/3 te3/4 te3/3
+rozb_rtr vlan330 te2/3 te3/3
+rozb_rtr vlan2704 te2/3 te3/4 gi4/3
+rozb_rtr vlan690 te2/3 te3/4 te3/3
+rozb_rtr vlan1215 po25 te3/3
+yozb_rtr vlan920 te1/3
+yozb_rtr vlan888 te1/3
+yozb_rtr vlan921 te1/3
+yozb_rtr vlan922 te1/3
+yozb_rtr vlan923 te1/3
+yozb_rtr vlan73 te1/3
+yozb_rtr vlan366 te1/3
+yozb_rtr vlan72 te1/3 te2/4
+yozb_rtr vlan367 te1/3
+yozb_rtr vlan71 te1/3
+yozb_rtr vlan368 te1/3
+yozb_rtr vlan70 te1/3
+yozb_rtr vlan369 te1/3
+yozb_rtr vlan928 te1/3
+yozb_rtr vlan929 te1/3
+yozb_rtr vlan924 te1/3
+yozb_rtr vlan925 te1/3
+yozb_rtr vlan926 te1/3
+yozb_rtr vlan927 te1/3
+yozb_rtr vlan66 te1/3 te2/4
+yozb_rtr vlan65 te1/3
+yozb_rtr vlan64 te1/3
+yozb_rtr vlan364 te1/3 te2/4
+yozb_rtr vlan365 te1/3
+yozb_rtr vlan69 te1/3
+yozb_rtr vlan68 te1/3 te2/4
+yozb_rtr vlan67 te1/3
+yozb_rtr vlan910 te1/3
+yozb_rtr vlan911 te1/3
+yozb_rtr vlan912 te1/3
+yozb_rtr vlan113 te1/3
+yozb_rtr vlan873 te1/3
+yozb_rtr vlan632 te1/3
+yozb_rtr vlan917 te1/3
+yozb_rtr vlan918 te1/3
+yozb_rtr vlan919 te1/3
+yozb_rtr vlan913 te1/3
+yozb_rtr vlan914 te1/3
+yozb_rtr vlan915 te1/3
+yozb_rtr vlan916 te1/3
+yozb_rtr vlan595 te1/3 te2/4
+yozb_rtr vlan870 te1/3
+yozb_rtr vlan112 te1/3
+yozb_rtr vlan900 te1/3
+yozb_rtr vlan901 te1/3
+yozb_rtr vlan906 te1/3
+yozb_rtr vlan907 te1/3
+yozb_rtr vlan908 te1/3
+yozb_rtr vlan909 te1/3
+yozb_rtr vlan902 te1/3
+yozb_rtr vlan903 te1/3
+yozb_rtr vlan904 te1/3
+yozb_rtr vlan905 te1/3
+yozb_rtr vlan100 te1/3
+yozb_rtr vlan291 te1/3
+yozb_rtr vlan292 te1/3
+yozb_rtr vlan570 te1/3
+yozb_rtr vlan4 te1/3
+yozb_rtr vlan3 te1/2 te1/1 te1/4
+yozb_rtr vlan208 te1/3
+yozb_rtr vlan201 te1/3
+yozb_rtr vlan202 te1/3
+yozb_rtr vlan567 te1/3
+yozb_rtr vlan209 te1/3
+yozb_rtr vlan2 te2/1
+yozb_rtr vlan312 te1/3
+yozb_rtr vlan555 te1/3
+yozb_rtr vlan99 te1/3 te2/4
+yozb_rtr vlan98 te1/3 te2/4
+yozb_rtr vlan10 te1/2 te1/4 te1/3
+yozb_rtr vlan96 te1/3 te2/4
+yozb_rtr vlan272 te1/3
+yozb_rtr vlan90 te1/3
+yozb_rtr vlan94 te1/3
+yozb_rtr vlan92 te1/3 te2/4
+yozb_rtr vlan820 te1/3
+yozb_rtr vlan88 te1/3 te2/4
+yozb_rtr vlan3704 te1/3
+yozb_rtr vlan89 te1/3 te2/4
+yozb_rtr vlan80 te1/3
+yozb_rtr vlan898 te1/3
+yozb_rtr vlan931 te1/3
+yozb_rtr vlan378 te1/3
+yozb_rtr vlan379 te1/3
+yozb_rtr vlan897 te1/3
+yozb_rtr vlan930 te1/3
+yozb_rtr vlan77 te1/3 te2/4
+yozb_rtr vlan374 te1/3
+yozb_rtr vlan891 te1/3
+yozb_rtr vlan132 te1/3
+yozb_rtr vlan76 te1/3
+yozb_rtr vlan892 te1/3
+yozb_rtr vlan75 te1/3
+yozb_rtr vlan376 te1/3
+yozb_rtr vlan893 te1/3
+yozb_rtr vlan74 te1/3
+yozb_rtr vlan370 te1/3
+yozb_rtr vlan371 te1/3
+yozb_rtr vlan79 te1/3
+yozb_rtr vlan372 te1/3
+yozb_rtr vlan78 te1/3 te2/4
+bozb_rtr vlan920 te2/3 te3/4 te3/3
+bozb_rtr vlan800 te2/3 te3/3
+bozb_rtr vlan520 te2/3 te3/4 te3/3
+bozb_rtr vlan366 te2/3 te3/4 gi4/4
+bozb_rtr vlan369 te2/3 te3/4 gi4/4
+bozb_rtr vlan365 te2/3 te3/4 gi4/4
+bozb_rtr vlan480 te2/3 te3/4 te3/3
+bozb_rtr vlan360 te2/3 te3/4 gi4/4
+bozb_rtr vlan482 te2/3 te3/4 te3/3
+bozb_rtr vlan361 te2/3 te3/4 gi4/4
+bozb_rtr vlan910 te2/3 te3/3
+bozb_rtr vlan355 te2/3 te3/4 gi4/4
+bozb_rtr vlan510 te2/3 te3/4 te3/3
+bozb_rtr vlan918 te2/3 te3/3
+bozb_rtr vlan916 te2/3 te3/3
+bozb_rtr vlan990 te2/3 te3/4 te3/3
+bozb_rtr vlan870 te2/3 te3/4 te3/3
+bozb_rtr vlan590 te2/3 te3/4 te3/3
+bozb_rtr vlan470 te2/3 te3/3
+bozb_rtr vlan350 te2/3 te3/4 gi4/4
+bozb_rtr vlan502 te2/3 te3/3
+bozb_rtr vlan504 te2/3 te3/4 te3/3
+bozb_rtr vlan900 te2/3 te3/3
+bozb_rtr vlan586 te2/3 te3/4 te3/3
+bozb_rtr vlan587 te2/3 te3/4 te3/3
+bozb_rtr vlan500 te2/3 te3/4 te3/3
+bozb_rtr vlan1608 te3/3 po15
+bozb_rtr vlan1609 te3/3 po15
+bozb_rtr vlan1606 te3/3 po15
+bozb_rtr vlan582 te2/3 te3/3
+bozb_rtr vlan583 te2/3 te3/3
+bozb_rtr vlan1607 te3/3 po15
+bozb_rtr vlan1604 po15 gi4/3
+bozb_rtr vlan980 te2/3 te3/3 gi4/3
+bozb_rtr vlan1605 te3/3 po15
+bozb_rtr vlan860 te2/3 te3/3
+bozb_rtr vlan1602 te3/3 po15
+bozb_rtr vlan1603 te3/3 po15
+bozb_rtr vlan581 te2/3 te3/3
+bozb_rtr vlan1601 te3/3 po15 gi4/4
+bozb_rtr vlan850 te2/3 te3/3
+bozb_rtr vlan1610 te3/3 po15
+bozb_rtr vlan290 te2/3 te3/3
+bozb_rtr vlan1617 te3/3 po15
+bozb_rtr vlan297 te2/3 te3/3
+bozb_rtr vlan298 te2/3 te3/3
+bozb_rtr vlan970 te2/3 te3/4 te3/3
+bozb_rtr vlan1699 te3/3 po15
+bozb_rtr vlan294 te2/3 te3/3
+bozb_rtr vlan1611 te3/3 po15
+bozb_rtr vlan570 te2/3 te3/4 te3/3
+bozb_rtr vlan1612 te3/3 po15
+bozb_rtr vlan601 te2/3 te3/4 te3/3
+bozb_rtr vlan965 te2/3 te3/4 te3/3
+bozb_rtr vlan206 te2/3 te3/3
+bozb_rtr vlan3 te2/1
+bozb_rtr vlan966 te2/3 te3/4 te3/3
+bozb_rtr vlan207 te2/3 te2/2 te3/3
+bozb_rtr vlan1909 po15 gi4/4
+bozb_rtr vlan208 te2/3 te3/3
+bozb_rtr vlan289 te2/3 te3/3
+bozb_rtr vlan960 te2/3 te3/4 te3/3
+bozb_rtr vlan1907 po15 gi4/4
+bozb_rtr vlan840 te2/3 te3/3
+bozb_rtr vlan1908 po15 gi4/4
+bozb_rtr vlan1905 po15 gi4/4
+bozb_rtr vlan204 te2/3 te3/3
+bozb_rtr vlan1906 po15 gi4/4
+bozb_rtr vlan209 gi4/47
+bozb_rtr vlan560 te2/3 te3/4 te3/3
+bozb_rtr vlan1903 po15 gi4/4
+bozb_rtr vlan1904 po15 gi4/4
+bozb_rtr vlan320 te2/3 te3/4 te3/3
+bozb_rtr vlan1901 te3/3 po15 gi4/4
+bozb_rtr vlan1902 po15 gi4/4
+bozb_rtr vlan1625 te3/3 po15
+bozb_rtr vlan1900 te3/3 po15 gi4/4
+bozb_rtr vlan2 te3/1
+bozb_rtr vlan1 te2/3
+bozb_rtr vlan955 te2/3 te3/4 te3/3
+bozb_rtr vlan950 te2/3 te3/4 te3/3
+bozb_rtr vlan312 te2/3 te3/3
+bozb_rtr vlan830 te2/3 te3/3
+bozb_rtr vlan314 te2/3 te3/3
+bozb_rtr vlan1632 te3/3 po15
+bozb_rtr vlan17 te3/3 gi1/1 gi4/4 gi4/3
+bozb_rtr vlan16 te3/3 gi1/1
+bozb_rtr vlan10 te2/3 te2/4 te3/3
+bozb_rtr vlan550 te2/3 te3/4 te3/3
+bozb_rtr vlan310 te2/3 te3/3
+bozb_rtr vlan1635 te3/3 po15 gi4/4
+bozb_rtr vlan1636 te3/3 po15 gi4/4
+bozb_rtr vlan790 te2/3 te3/3
+bozb_rtr vlan701 te2/3 te3/4 te3/3
+bozb_rtr vlan789 te2/3 te3/4 te3/3
+bozb_rtr vlan702 te2/3 te3/4 te3/3
+bozb_rtr vlan824 te2/3 te3/3
+bozb_rtr vlan940 te2/3 te3/4 te3/3
+bozb_rtr vlan820 te2/3 te3/3
+bozb_rtr vlan780 te2/3 te3/4 te3/3
+bozb_rtr vlan1648 te3/3 po15
+bozb_rtr vlan540 te2/3 te3/4 te3/3
+bozb_rtr vlan1649 te3/3 po15
+bozb_rtr vlan256 te2/3 te3/4 te3/3
+bozb_rtr vlan1653 te3/3 po15
+bozb_rtr vlan1654 te3/3 po15
+bozb_rtr vlan1650 te3/3 po15
+bozb_rtr vlan890 te2/3 te3/4 te3/3
+bozb_rtr vlan650 te2/3 te3/4 te3/3
+bozb_rtr vlan530 te2/3 te3/4 te3/3
+bozb_rtr vlan490 te2/3 te3/4 te3/3
+bozb_rtr vlan250 te2/3 te3/4 te3/3
+sozb_rtr vlan205 te2/2 te3/3 gi1/1
+sozb_rtr vlan3 te2/1
+sozb_rtr vlan206 te2/2 te3/3 gi1/1
+sozb_rtr vlan207 te2/2 te3/3 gi1/1
+sozb_rtr vlan208 te2/3 te2/2 te3/3 gi1/1
+sozb_rtr vlan322 te2/2 te3/3 gi1/1
+sozb_rtr vlan201 te2/2 te3/3 gi1/1
+sozb_rtr vlan400 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan202 te2/2 te3/3 gi1/1
+sozb_rtr vlan401 te2/3 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan566 te3/1
+sozb_rtr vlan203 te2/2 te3/3 gi1/1
+sozb_rtr vlan368 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan204 te2/2 te3/3 gi1/1
+sozb_rtr vlan209 gi1/1
+sozb_rtr vlan22 te3/1
+sozb_rtr vlan364 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan320 te2/2 te3/3 gi1/1
+sozb_rtr vlan2 te3/1
+sozb_rtr vlan1 gi1/1
+sozb_rtr vlan23 te2/1
+sozb_rtr vlan514 te2/3 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan911 te2/2 te3/3 gi1/1
+sozb_rtr vlan516 te2/3 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan510 te2/3 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan356 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan16 gi1/2
+sozb_rtr vlan352 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan10 te2/2 te2/4 te3/3
+sozb_rtr vlan354 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan392 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan348 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan502 te2/3 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan504 te2/3 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan548 te2/2 te3/3 gi1/1
+sozb_rtr vlan388 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan344 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan301 te2/2 te3/3 gi1/1
+sozb_rtr vlan500 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan424 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan506 te2/3 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan508 te2/3 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan340 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan380 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan580 te2/1
+sozb_rtr vlan334 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan83 te2/1
+sozb_rtr vlan82 te3/1
+sozb_rtr vlan336 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan418 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan494 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan496 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan376 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan332 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan492 te2/2 te3/4 te3/3 gi1/1
+sozb_rtr vlan493 te2/2 te3/4 te3/3 gi1/1
+bbrb_rtr vlan117 gi4/16
+bbrb_rtr vlan3 gi4/8 gi4/3 gi5/1 te1/2 te1/1 te1/4 te1/3 te6/1 te6/3 te7/2 te6/2 te7/4 te6/4 te7/3
+bbrb_rtr vlan84 te6/1 te7/2
+bbrb_rtr vlan94 gi5/1
+bbrb_rtr vlan83 te6/1 te7/2 gi4/2
+bbrb_rtr vlan93 gi5/1
+bbrb_rtr vlan127 gi4/16
+bbrb_rtr vlan9 gi5/1
+bbrb_rtr vlan18 gi4/4
+bbrb_rtr vlan17 gi4/4
+bbrb_rtr vlan66 te1/4 te7/3 gi5/1
+bbrb_rtr vlan11 te7/1
+bbrb_rtr vlan43 gi4/15 te6/1 te7/2 gi5/1
+bbrb_rtr vlan590 gi5/1
+bbrb_rtr vlan580 gi4/15 te6/1 te7/2
+bbrb_rtr vlan592 gi5/1
+bbrb_rtr vlan23 te6/1 te7/2 gi5/1
+roza_rtr vlan722 te2/3 te3/3 gi4/46
+roza_rtr vlan3 te3/1
+roza_rtr vlan800 te3/4 te3/3 gi4/46
+roza_rtr vlan206 te3/3
+roza_rtr vlan801 te3/4 te3/3 gi4/46
+roza_rtr vlan208 te2/3 te3/3
+roza_rtr vlan322 te3/4 te3/3 gi4/46
+roza_rtr vlan400 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan720 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan600 te3/4 te3/3 gi4/46
+roza_rtr vlan209 gi4/47
+roza_rtr vlan440 te3/4 te3/3 gi4/46
+roza_rtr vlan760 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan480 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan2 te2/1
+roza_rtr vlan680 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan1 te2/3
+roza_rtr vlan755 te2/3 te3/3 gi4/46
+roza_rtr vlan279 te3/3 gi4/46
+roza_rtr vlan950 te2/3 te3/3 gi4/46
+roza_rtr vlan710 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan952 te2/3 te3/3 gi4/46
+roza_rtr vlan1281 te3/3 po20
+roza_rtr vlan715 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan1235 te3/3 po20
+roza_rtr vlan17 gi4/48
+roza_rtr vlan390 te3/4 te3/3 gi4/46
+roza_rtr vlan16 gi4/48
+roza_rtr vlan1230 te3/3 po20
+roza_rtr vlan670 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan671 te3/4 te3/3 gi4/46
+roza_rtr vlan10 te2/3 te2/4 te3/3 gi4/46
+roza_rtr vlan430 te3/4 te3/3 gi4/46
+roza_rtr vlan750 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan992 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan2604 te2/3 te3/4 gi4/3
+roza_rtr vlan590 te3/4 te3/3 gi4/46
+roza_rtr vlan470 te3/4 te3/3 gi4/46
+roza_rtr vlan790 te3/4 te3/3 gi4/46
+roza_rtr vlan700 te2/3 te3/3 gi4/46
+roza_rtr vlan740 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan940 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan468 te3/4 te3/3 gi4/46
+roza_rtr vlan1202 te3/3 po20
+roza_rtr vlan1203 te3/3 po20
+roza_rtr vlan1201 te3/3 po20
+roza_rtr vlan780 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan660 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan781 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan1208 te3/3 po20
+roza_rtr vlan980 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan1209 te3/3 po20
+roza_rtr vlan420 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan1206 te3/3 po20
+roza_rtr vlan1207 te3/3 po20
+roza_rtr vlan1204 te3/3 po20
+roza_rtr vlan580 te3/4 te3/3 gi4/46
+roza_rtr vlan460 te3/4 te3/3 gi4/46
+roza_rtr vlan1205 te3/3 po20
+roza_rtr vlan810 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan339 te2/3 te3/3 gi4/46
+roza_rtr vlan410 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan730 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan610 te3/4 te3/3 gi4/46
+roza_rtr vlan815 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan1213 te3/3 po20
+roza_rtr vlan1214 te3/3 po20
+roza_rtr vlan1211 te3/3 po20
+roza_rtr vlan1212 te3/3 po20
+roza_rtr vlan1210 te3/3 po20
+roza_rtr vlan890 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan450 te2/3 te3/3 gi4/46
+roza_rtr vlan770 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan330 te2/3 te3/3 gi4/46
+roza_rtr vlan2704 te2/3 te3/4 gi4/3
+roza_rtr vlan690 te2/3 te3/4 te3/3 gi4/46
+roza_rtr vlan1215 te3/3 po20
+soza_rtr vlan205 te2/2 te3/3 gi1/2
+soza_rtr vlan3 te3/1
+soza_rtr vlan206 te2/2 te3/3 gi1/2
+soza_rtr vlan207 te2/2 te3/3 gi1/2
+soza_rtr vlan208 te2/3 te2/2 te3/3 gi1/2
+soza_rtr vlan322 te2/2 te3/3 gi1/2
+soza_rtr vlan201 te2/2 te3/3 gi1/2
+soza_rtr vlan400 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan202 te2/2 te3/3 gi1/2
+soza_rtr vlan401 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan566 te2/1
+soza_rtr vlan203 te2/2 te3/3 gi1/2
+soza_rtr vlan368 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan204 te2/2 te3/3 gi1/2
+soza_rtr vlan209 gi1/2
+soza_rtr vlan22 te2/1
+soza_rtr vlan364 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan320 te2/2 te3/3 gi1/2
+soza_rtr vlan2 te2/1
+soza_rtr vlan1 gi1/2
+soza_rtr vlan23 te3/1
+soza_rtr vlan514 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan911 te2/2 te3/3 gi1/2
+soza_rtr vlan516 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan510 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan356 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan16 gi1/1
+soza_rtr vlan352 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan10 te2/3 te2/2 te2/4 te3/3
+soza_rtr vlan354 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan392 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan273 te2/2 te3/3 gi1/2
+soza_rtr vlan348 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan502 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan504 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan548 te2/2 te3/3 gi1/2
+soza_rtr vlan388 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan344 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan301 te2/2 te3/3 gi1/2
+soza_rtr vlan500 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan424 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan506 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan508 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan340 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan380 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan580 te3/1
+soza_rtr vlan334 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan83 te3/1
+soza_rtr vlan82 te2/1
+soza_rtr vlan336 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan418 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan494 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan496 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan376 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan332 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan492 te2/3 te2/2 te3/4 te3/3 gi1/2
+soza_rtr vlan493 te2/3 te2/2 te3/4 te3/3 gi1/2
+yoza_rtr vlan920 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan888 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan921 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan922 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan923 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan73 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan366 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan72 te1/1 gi2/13 gi2/16 te7/2 fa4/42 te7/4 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan367 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan71 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan368 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan70 te1/1 gi2/13 gi2/16 te7/2 gi2/1 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan369 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan928 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan929 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan924 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan925 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan926 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan927 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan3722 gi2/9 gi2/8 gi2/10
+yoza_rtr vlan66 te1/1 gi2/13 gi2/16 gi2/2 te7/2 fa4/42 te7/4 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan65 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan64 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan364 te1/1 gi2/13 gi2/16 te7/2 fa4/42 te7/4 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan365 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/5 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan69 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan68 te1/1 gi2/13 gi2/16 te7/2 fa4/42 te7/4 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan67 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan910 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan911 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan912 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan113 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan873 gi2/15 fa4/1 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi5/1 gi2/3
+yoza_rtr vlan632 te1/1 gi2/13 fa4/47 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan917 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan918 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan919 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan913 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan914 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan915 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan916 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan595 te1/1 gi2/13 gi2/16 te7/2 fa4/42 te7/4 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan870 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan112 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan3738 gi2/9 gi2/8 gi2/10
+yoza_rtr vlan900 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan901 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan906 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan907 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan908 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan909 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan902 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan903 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan904 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan905 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan100 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/11 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan291 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi2/5 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan292 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan570 gi3/15 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan4 te1/1
+yoza_rtr vlan3 te7/1
+yoza_rtr vlan208 te1/1 gi2/13 gi2/16 te7/2 fa4/42 fa4/44 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan201 fa4/39 te1/1 gi2/13 gi2/16 fa4/37 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan202 gi2/9 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan567 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan209 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 fa4/41 gi2/3
+yoza_rtr vlan2 te1/3
+yoza_rtr vlan1 gi2/13 gi2/16 te7/2 gi3/12 fa4/40
+yoza_rtr vlan312 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan555 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan99 te1/1 gi2/13 gi2/16 te7/2 fa4/42 te7/4 gi3/11 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan98 te1/1 gi2/13 gi2/16 te7/2 fa4/42 te7/4 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan10 te1/2 te1/4
+yoza_rtr vlan96 te1/1 gi2/13 gi2/16 te7/2 fa4/42 te7/4 gi3/11 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan272 te1/1 gi2/13 gi2/16 fa4/2 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan90 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan94 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan92 te1/1 gi2/13 gi2/16 te7/2 fa4/42 te7/4 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan820 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan3709 gi2/9 gi2/8 fa4/45 gi2/10
+yoza_rtr vlan3700 gi2/9 gi2/8 fa4/45 gi2/10
+yoza_rtr vlan88 te1/1 gi2/13 gi2/16 te7/2 fa4/42 te7/4 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan3707 gi2/9 gi2/8 fa4/45 gi2/10
+yoza_rtr vlan3705 gi2/9 gi2/8 fa4/45 gi2/10
+yoza_rtr vlan3704 gi2/9 gi2/8 fa4/45 gi2/10
+yoza_rtr vlan3702 gi2/9 gi2/8 fa4/45 gi2/10
+yoza_rtr vlan89 te1/1 gi2/13 gi2/16 te7/2 fa4/42 te7/4 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan3701 gi2/9 gi2/8 fa4/45 gi2/10
+yoza_rtr vlan80 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan898 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan931 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan899 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan378 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan379 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan897 te1/1 gi2/13 gi2/16 te7/2 fa4/42 fa4/7 gi3/4 gi2/4 gi3/3 gi5/1 gi2/3
+yoza_rtr vlan930 te1/1 gi2/13 gi2/16 te7/2 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan77 te1/1 gi2/13 gi2/16 te7/2 fa4/42 te7/4 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan374 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan891 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan132 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan76 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan892 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi5/1 gi2/3
+yoza_rtr vlan75 te1/1 gi2/13 gi3/6 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan3716 gi2/9 gi2/8 fa4/45 gi2/10
+yoza_rtr vlan376 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan893 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan74 te1/1 gi2/13 fa4/4 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi5/1 gi2/3
+yoza_rtr vlan3715 gi2/9 gi2/8 fa4/45 gi2/10
+yoza_rtr vlan370 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan371 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan79 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan372 te1/1 gi2/13 gi2/16 te7/2 fa4/42 gi3/4 gi2/4 gi3/3 gi2/3
+yoza_rtr vlan78 te1/1 gi2/13 gi2/16 te7/2 fa4/42 te7/4 gi3/4 gi2/4 gi3/3 gi2/3
+boza_rtr vlan920 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan800 te2/3 te3/3 gi4/46
+boza_rtr vlan520 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan366 te2/3 te3/4 te3/3 gi4/4 gi4/46
+boza_rtr vlan368 te2/3 te3/3 gi4/4 gi4/46
+boza_rtr vlan369 te2/3 te3/4 te3/3 gi4/4 gi4/46
+boza_rtr vlan365 te2/3 te3/4 te3/3 gi4/4 gi4/46
+boza_rtr vlan480 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan360 te2/3 te3/4 te3/3 gi4/4 gi4/46
+boza_rtr vlan482 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan361 te2/3 te3/4 te3/3 gi4/4 gi4/46
+boza_rtr vlan910 te2/3 te3/3 gi4/46
+boza_rtr vlan355 te2/3 te3/4 te3/3 gi4/4 gi4/46
+boza_rtr vlan510 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan918 te2/3 te3/3 gi4/46
+boza_rtr vlan916 te2/3 te3/3 gi4/46
+boza_rtr vlan990 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan199 gi4/47
+boza_rtr vlan870 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan590 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan470 te2/3 te3/3 gi4/46
+boza_rtr vlan350 te2/3 te3/4 te3/3 gi4/4 gi4/46
+boza_rtr vlan502 te2/3 te3/3 gi4/46
+boza_rtr vlan504 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan900 te2/3 te3/3 gi4/46
+boza_rtr vlan586 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan587 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan500 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan1608 te3/3 po10
+boza_rtr vlan1609 te3/3 po10
+boza_rtr vlan1606 te3/3 po10
+boza_rtr vlan582 te2/3 te3/3 gi4/46
+boza_rtr vlan583 te2/3 te3/3 gi4/46
+boza_rtr vlan1607 te3/3 po10
+boza_rtr vlan1604 po10 gi4/3
+boza_rtr vlan980 te2/3 te3/3 gi4/46 gi4/3
+boza_rtr vlan1605 te3/3 po10
+boza_rtr vlan860 te2/3 te3/3 gi4/46
+boza_rtr vlan1602 te3/3 po10
+boza_rtr vlan1603 te3/3 po10
+boza_rtr vlan581 te2/3 te3/3 gi4/46
+boza_rtr vlan1601 te3/3 po10 gi4/4
+boza_rtr vlan850 te2/3 te3/3 gi4/46
+boza_rtr vlan1610 te3/3 po10
+boza_rtr vlan290 te2/3 te3/3 gi4/46
+boza_rtr vlan1617 te3/3 po10
+boza_rtr vlan297 te2/3 te3/3 gi4/46
+boza_rtr vlan298 te2/3 te3/3 gi4/46
+boza_rtr vlan970 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan1699 te3/3 po10
+boza_rtr vlan294 te2/3 te3/3 gi4/46
+boza_rtr vlan1611 te3/3 po10
+boza_rtr vlan570 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan1612 te3/3 po10
+boza_rtr vlan601 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan965 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan206 te2/3 te3/3
+boza_rtr vlan3 te3/1
+boza_rtr vlan966 gi4/5 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan207 te2/3 te2/2 te3/3
+boza_rtr vlan1909 po10 gi4/4
+boza_rtr vlan208 te2/3 te3/3
+boza_rtr vlan289 te2/3 te3/3 gi4/46
+boza_rtr vlan960 gi4/5 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan1907 po10 gi4/4
+boza_rtr vlan840 te2/3 te3/3 gi4/46
+boza_rtr vlan1908 po10 gi4/4
+boza_rtr vlan1905 po10 gi4/4
+boza_rtr vlan204 te2/3 te3/3
+boza_rtr vlan1906 po10 gi4/4
+boza_rtr vlan209 gi4/47
+boza_rtr vlan560 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan1903 po10 gi4/4
+boza_rtr vlan1904 po10 gi4/4
+boza_rtr vlan320 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan1901 te3/3 po10 gi4/4
+boza_rtr vlan1902 po10 gi4/4
+boza_rtr vlan1625 te3/3 po10
+boza_rtr vlan1900 te3/3 po10 gi4/4
+boza_rtr vlan2 te2/1
+boza_rtr vlan1 te2/3 te3/3
+boza_rtr vlan955 gi4/5 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan950 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan312 te2/3 te3/3 gi4/46
+boza_rtr vlan830 te2/3 te3/3 gi4/46
+boza_rtr vlan314 te2/3 te3/3 gi4/46
+boza_rtr vlan1632 te3/3 po10
+boza_rtr vlan17 gi4/48 gi4/5 gi4/4 gi4/3
+boza_rtr vlan16 gi4/48
+boza_rtr vlan10 te2/3 te2/4 te3/3 gi4/46
+boza_rtr vlan550 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan310 te2/3 te3/3 gi4/46
+boza_rtr vlan1635 te3/3 po10 gi4/4
+boza_rtr vlan1636 te3/3 po10 gi4/4
+boza_rtr vlan790 te2/3 te3/3 gi4/46
+boza_rtr vlan701 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan789 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan702 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan824 te2/3 te3/3 gi4/46
+boza_rtr vlan940 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan820 te2/3 te3/3 gi4/46
+boza_rtr vlan780 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan1648 te3/3 po10
+boza_rtr vlan540 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan1649 te3/3 po10
+boza_rtr vlan256 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan1653 te3/3 po10
+boza_rtr vlan1654 te3/3 po10
+boza_rtr vlan1650 te3/3 po10
+boza_rtr vlan890 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan650 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan530 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan490 te2/3 te3/4 te3/3 gi4/46
+boza_rtr vlan250 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan645 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan800 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan647 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1709 te3/3 po30
+poza_rtr vlan400 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1707 te3/3 po30
+poza_rtr vlan1708 te3/3 po30
+poza_rtr vlan880 te2/3 te3/3 gi4/46
+poza_rtr vlan1706 te3/3 po30
+poza_rtr vlan760 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan640 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1704 te3/3 po30
+poza_rtr vlan1702 te3/3 po30
+poza_rtr vlan360 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan630 te2/3 te3/3 gi4/46
+poza_rtr vlan1718 te3/3 po30
+poza_rtr vlan1719 te3/3 po30
+poza_rtr vlan1716 te3/3 po30
+poza_rtr vlan990 te2/3 te3/3 gi4/46
+poza_rtr vlan199 te3/3
+poza_rtr vlan870 te2/3 te3/3 gi4/46
+poza_rtr vlan1714 te3/3 po30
+poza_rtr vlan750 te2/3 te3/4 te3/3 gi4/46 gi4/3
+poza_rtr vlan1715 te3/3 po30
+poza_rtr vlan1712 te3/3 po30
+poza_rtr vlan1713 te3/3 po30
+poza_rtr vlan1710 te3/3 po30
+poza_rtr vlan350 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1711 te3/3 po30
+poza_rtr vlan740 te2/3 te3/4 te3/3 gi4/46 gi4/3
+poza_rtr vlan620 te3/4 te3/3 gi4/46
+poza_rtr vlan1729 te3/3 po30
+poza_rtr vlan1720 te3/3 po30
+poza_rtr vlan340 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1727 te3/3 po30
+poza_rtr vlan980 te2/3 te3/3 gi4/46
+poza_rtr vlan1726 te3/3 po30
+poza_rtr vlan860 te2/3 te3/3 gi4/46
+poza_rtr vlan1724 te3/3 po30
+poza_rtr vlan1721 te3/3 po30
+poza_rtr vlan1722 te3/3 po30
+poza_rtr vlan730 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan450 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan330 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1736 te3/3 po30
+poza_rtr vlan970 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan2703 te2/3 te3/4 te3/3
+poza_rtr vlan1735 te3/3 po30
+poza_rtr vlan690 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan3 te3/1
+poza_rtr vlan208 te2/3 te3/3
+poza_rtr vlan960 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan202 te2/3 te3/3
+poza_rtr vlan840 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan720 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan209 te3/3 gi1/1
+poza_rtr vlan849 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1103 te3/3 po30
+poza_rtr vlan1104 te3/3 po30
+poza_rtr vlan1102 te3/3 po30
+poza_rtr vlan1100 te3/3 po30
+poza_rtr vlan320 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1109 te3/3 po30
+poza_rtr vlan1107 te3/3 po30
+poza_rtr vlan1108 te3/3 po30
+poza_rtr vlan1105 te3/3 po30
+poza_rtr vlan2 te2/1
+poza_rtr vlan680 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1106 te3/3 po30
+poza_rtr vlan1 te2/3 te3/3
+poza_rtr vlan678 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan679 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan674 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan950 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan675 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan676 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan830 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan710 te2/3 te3/3 gi4/46
+poza_rtr vlan677 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1115 te3/3 po30
+poza_rtr vlan17 gi4/48
+poza_rtr vlan1112 te3/3 po30
+poza_rtr vlan16 gi4/48 te3/3
+poza_rtr vlan1110 te3/3 po30
+poza_rtr vlan1111 te3/3 po30
+poza_rtr vlan670 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan10 te2/3 te2/4 te3/3 gi4/46
+poza_rtr vlan672 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan310 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan673 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1118 te3/3 po30
+poza_rtr vlan1119 te3/3 po30
+poza_rtr vlan2603 te2/3 te3/4 te3/3
+poza_rtr vlan1116 te3/3 po30
+poza_rtr vlan1117 te3/3 po30
+poza_rtr vlan700 te2/3 te3/3 gi4/46
+poza_rtr vlan945 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan428 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan300 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan665 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan940 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan820 te2/3 te3/3 gi4/46
+poza_rtr vlan429 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1125 te3/3 po30
+poza_rtr vlan1126 te3/3 po30
+poza_rtr vlan1123 te3/3 po30
+poza_rtr vlan1124 te3/3 po30
+poza_rtr vlan1121 te3/3 po30
+poza_rtr vlan1122 te3/3 po30
+poza_rtr vlan660 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan420 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan380 te2/3 te3/3 gi4/46
+poza_rtr vlan810 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan410 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan930 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan1775 te3/3 po30
+poza_rtr vlan890 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan770 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan650 te2/3 te3/4 te3/3 gi4/46
+poza_rtr vlan370 te2/3 te3/4 te3/3 gi4/46
+coza_rtr vlan205 te3/3 gi1/1
+coza_rtr vlan3 te3/1
+coza_rtr vlan448 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan206 te3/3 gi1/1
+coza_rtr vlan207 te3/3 gi1/1
+coza_rtr vlan208 te2/3 te3/3 gi1/1
+coza_rtr vlan549 te3/3 gi1/1
+coza_rtr vlan322 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan564 te2/1
+coza_rtr vlan201 te3/3 gi1/1
+coza_rtr vlan466 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan444 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan488 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan202 te3/3 gi1/1
+coza_rtr vlan203 te3/3 gi1/1
+coza_rtr vlan468 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan204 te3/3 gi1/1
+coza_rtr vlan209 gi1/1
+coza_rtr vlan22 te2/1
+coza_rtr vlan440 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan484 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan320 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan2 te2/1
+coza_rtr vlan580 te3/1
+coza_rtr vlan1 gi1/1
+coza_rtr vlan23 te3/1
+coza_rtr vlan436 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan558 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan316 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan476 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan432 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan499 te3/3 gi1/1
+coza_rtr vlan554 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan83 te3/1
+coza_rtr vlan456 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan82 te2/1
+coza_rtr vlan556 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan16 gi1/2
+coza_rtr vlan472 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan473 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan550 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan10 te2/3 te2/4 te3/3
+coza_rtr vlan474 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan430 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan452 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan552 te2/3 te3/4 te3/3 gi1/1
+coza_rtr vlan475 te2/3 te3/4 te3/3 gi1/1
+goza_rtr vlan920 te2/3 te3/3
+goza_rtr vlan800 te2/3 te3/4 te3/3
+goza_rtr vlan525 te2/3 te3/4 te3/3
+goza_rtr vlan520 te2/3 te3/4 te3/3
+goza_rtr vlan1541 gi4/7 po40
+goza_rtr vlan1025 te3/3 po40
+goza_rtr vlan1540 gi4/7 po40
+goza_rtr vlan880 te2/3 te3/4 te3/3
+goza_rtr vlan881 te2/3 te3/4 te3/3
+goza_rtr vlan760 te2/3 te3/3
+goza_rtr vlan1545 te3/3 po40
+goza_rtr vlan514 te2/3 te3/4 te3/3
+goza_rtr vlan910 te2/3 te3/4 te3/3
+goza_rtr vlan999 te2/3 te3/4 te3/3
+goza_rtr vlan510 te2/3 te3/4 te3/3
+goza_rtr vlan598 te2/3 te3/4 te3/3
+goza_rtr vlan517 te2/3 te3/4 te3/3
+goza_rtr vlan190 te2/3 te3/4 te3/3
+goza_rtr vlan594 te2/3 te3/4 te3/3
+goza_rtr vlan198 te2/3 te3/4 te3/3
+goza_rtr vlan990 te2/3 te3/3
+goza_rtr vlan870 te2/3 te3/4 te3/3
+goza_rtr vlan596 te2/3 te3/4 te3/3
+goza_rtr vlan470 gi4/47 te2/3 te3/4 te3/3
+goza_rtr vlan592 te2/3 te3/4 te3/3
+goza_rtr vlan900 te2/3 te3/3
+goza_rtr vlan223 te2/3 te3/4 te3/3
+goza_rtr vlan50 te2/3 gi4/19 te3/3 gi4/20
+goza_rtr vlan500 te2/3 te3/3
+goza_rtr vlan1173 gi4/6 po40
+goza_rtr vlan461 te2/3 te3/4 te3/3
+goza_rtr vlan220 te2/3 te3/4 te3/3
+goza_rtr vlan980 gi4/7 te2/3 te3/4 te3/3
+goza_rtr vlan860 te2/3 te3/4 te3/3
+goza_rtr vlan580 te2/3 te3/4 te3/3
+goza_rtr vlan459 te2/3 te3/4 te3/3
+goza_rtr vlan850 te2/3 te3/4 te3/3
+goza_rtr vlan455 te2/3 te3/4 te3/3
+goza_rtr vlan730 gi4/16 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan731 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan732 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan1181 gi4/6 te3/3 po40
+goza_rtr vlan1180 gi4/6 po40
+goza_rtr vlan290 te2/3 te3/4 te3/3
+goza_rtr vlan1178 gi4/6 po40
+goza_rtr vlan1179 gi4/6 po40
+goza_rtr vlan1176 gi4/6 po40
+goza_rtr vlan1177 gi4/6 po40
+goza_rtr vlan1174 gi4/6 po40
+goza_rtr vlan1175 gi4/6 po40
+goza_rtr vlan450 te2/3 te3/4 te3/3
+goza_rtr vlan452 gi4/7 te2/3 te3/4 te3/3
+goza_rtr vlan210 te2/3 te3/4 te3/3
+goza_rtr vlan453 gi4/7 te2/3 te3/4 te3/3
+goza_rtr vlan970 gi4/7 te2/3 te3/4 te3/3
+goza_rtr vlan2702 te2/3 te3/4 te3/3
+goza_rtr vlan570 te2/3 te3/4 te3/3
+goza_rtr vlan722 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan723 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan206 te2/3 te3/3
+goza_rtr vlan3 te3/1
+goza_rtr vlan724 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan725 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan208 te2/3 te3/3
+goza_rtr vlan960 gi4/7 te2/3 te3/4 te3/3
+goza_rtr vlan201 te2/3 te3/3
+goza_rtr vlan840 te2/3 te3/4 te3/3
+goza_rtr vlan720 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan1509 te3/3 po40
+goza_rtr vlan721 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan1071 gi4/6 te3/3 po40
+goza_rtr vlan1072 gi4/6 te3/3 po40
+goza_rtr vlan726 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan209 gi4/47
+goza_rtr vlan727 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan1070 gi4/6 te3/3 po40
+goza_rtr vlan728 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan729 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan1069 gi4/6 te3/3 po40
+goza_rtr vlan1507 te3/3 po40
+goza_rtr vlan560 te2/3 te3/4 te3/3
+goza_rtr vlan1505 te3/3 po40
+goza_rtr vlan320 te2/3 te3/4 te3/3
+goza_rtr vlan562 te2/3 te3/4 te3/3
+goza_rtr vlan1506 te3/3 po40
+goza_rtr vlan1504 te3/3 po40
+goza_rtr vlan1501 te3/3 po40
+goza_rtr vlan2 te2/1
+goza_rtr vlan1502 te3/3 po40
+goza_rtr vlan1 te2/3 te3/3
+goza_rtr vlan711 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan712 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan795 te2/3 te3/3 gi4/18
+goza_rtr vlan950 gi4/7 te2/3 te3/3
+goza_rtr vlan830 te2/3 te3/4 te3/3
+goza_rtr vlan710 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan839 te2/3 te3/4 te3/3
+goza_rtr vlan1510 te3/3 po40
+goza_rtr vlan1114 te3/3 po40
+goza_rtr vlan1599 te3/3 po40
+goza_rtr vlan17 gi4/17 gi4/16 gi4/15 gi4/48 gi4/5 gi4/14 gi4/19 gi4/18 gi4/4 gi4/3 gi4/20 gi4/13 gi4/12
+goza_rtr vlan16 gi4/48
+goza_rtr vlan1518 te3/3 po40
+goza_rtr vlan791 gi4/5 te2/3 te3/4 te3/3 gi4/4
+goza_rtr vlan1519 te3/3 po40
+goza_rtr vlan10 te2/3 te2/4 te3/3
+goza_rtr vlan550 te2/3 te3/4 te3/3
+goza_rtr vlan792 gi4/5 te2/3 te3/4 gi4/4
+goza_rtr vlan1516 te3/3 po40
+goza_rtr vlan1912 te3/3 po40
+goza_rtr vlan1517 te3/3 po40
+goza_rtr vlan1913 te3/3 po40
+goza_rtr vlan1514 te3/3 po40
+goza_rtr vlan1515 te3/3 po40
+goza_rtr vlan2602 te2/3 te3/4 te3/3
+goza_rtr vlan790 gi4/5 te2/3 te3/3 gi4/4
+goza_rtr vlan700 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan701 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan702 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan703 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan785 te2/3 te3/4 te3/3 gi4/3 gi4/12
+goza_rtr vlan665 te2/3 te3/4 te3/3
+goza_rtr vlan940 gi4/7 gi4/6 te2/3 te3/4 te3/3
+goza_rtr vlan820 te2/3 te3/3 gi4/3
+goza_rtr vlan941 gi4/6 te2/3 te3/4 te3/3
+goza_rtr vlan708 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan709 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan704 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan705 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan706 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan707 gi4/17 gi4/16 gi4/15 gi4/14 te2/3 te3/4 gi4/19 te3/3 gi4/18 gi4/20 gi4/13 gi4/12
+goza_rtr vlan780 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan660 te2/3 te3/4 te3/3
+goza_rtr vlan661 te2/3 te3/4 te3/3
+goza_rtr vlan540 te2/3 te3/4 te3/3
+goza_rtr vlan420 te2/3 te3/3
+goza_rtr vlan810 te2/3 te3/4 te3/3
+goza_rtr vlan531 te2/3 te3/4 te3/3
+goza_rtr vlan532 te2/3 te3/4 te3/3
+goza_rtr vlan533 te2/3 te3/4 te3/3
+goza_rtr vlan534 te2/3 te3/4 te3/3
+goza_rtr vlan1533 gi4/12 po40
+goza_rtr vlan770 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan1538 gi4/17 po40
+goza_rtr vlan530 te2/3 te3/4 te3/3
+goza_rtr vlan1539 gi4/18 po40
+goza_rtr vlan490 te2/3 te3/4 te3/3 gi4/3
+goza_rtr vlan1536 gi4/15 po40
+goza_rtr vlan1537 gi4/16 po40
+goza_rtr vlan1534 gi4/13 po40
+goza_rtr vlan250 te2/3 te3/4 te3/3
+goza_rtr vlan1535 gi4/14 po40

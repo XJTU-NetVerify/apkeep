@@ -153,10 +153,11 @@ public class Evaluator {
 		veri_time = 0;
 		
 		File file = new File(output_file);
+		if(!file.getParentFile().exists()) file.getParentFile().mkdirs();
 		try {
 			output_writer = new FileWriter(file);
+			output_writer.write("#rule_id\tAP_num\ttotal_time\tPPM_time\tcheck_time\n");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -176,9 +177,9 @@ public class Evaluator {
 		}
 		if (update_num % Parameters.WRITE_RESULT_INTERVAL == 0) {
 			try {
-				output_writer.write(update_num + " " + ap_num + " " + update_time/1000
-						+ " " + (mid_time - start_time)/1000
-						+ " " + (end_time - mid_time)/1000
+				output_writer.write(update_num + "\t" + ap_num + "\t" + update_time/1000
+						+ "\t" + (mid_time - start_time)/1000
+						+ "\t" + (end_time - mid_time)/1000
 						+"\n");
 			} catch (IOException e) {
 				e.printStackTrace();

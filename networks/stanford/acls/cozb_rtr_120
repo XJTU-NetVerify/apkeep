@@ -1,0 +1,8 @@
+access-list 120 permit 0 255 172.19.96.0 0.0.3.255 null null 172.27.143.160 0.0.0.31 null null -1 65535
+access-list 120 permit 0 255 172.19.96.0 0.0.3.255 null null 171.64.10.0 0.0.1.255 null null -1 65534
+access-list 120 permit 0 255 172.19.96.0 0.0.3.255 null null 10.64.10.100 null null null -1 65533
+access-list 120 permit 0 255 172.19.96.0 0.0.3.255 null null 171.67.43.194 null null null -1 65532
+access-list 120 deny 0 255 172.19.96.0 0.0.3.255 null null any null null null -1 65531
+access-list 120 deny 17 17 any null null null 128.12.0.1 0.0.255.0 161 161 -1 65530
+access-list 120 deny 17 17 any null null null 172.19.0.1 0.0.255.0 161 161 -1 65529
+access-list 120 permit 0 255 any null null null any null null null -1 65528

@@ -1,0 +1,13 @@
+access-list outACL deny 17 17 any null null null any null 8998 8998 -1 65535
+access-list outACL deny 6 6 any null null null any null 25 25 -1 65534
+access-list outACL deny 6 6 any null null null any null 135 135 -1 65533
+access-list outACL deny 6 6 any null null null any null 137 139 -1 65532
+access-list outACL deny 6 6 any null null null any null 445 445 -1 65531
+access-list outACL deny 17 17 any null null null any null 135 135 -1 65530
+access-list outACL deny 17 17 any null null null any null 137 139 -1 65529
+access-list outACL deny 17 17 any null null null any null 445 445 -1 65528
+access-list outACL permit 0 255 128.12.0.0 0.0.255.255 null null any null null null -1 65527
+access-list outACL deny 0 255 10.0.0.0 0.255.255.255 null null any null null null -1 65526
+access-list outACL deny 0 255 172.16.0.0 0.15.255.255 null null any null null null -1 65525
+access-list outACL deny 0 255 192.168.0.0 0.0.255.255 null null any null null null -1 65524
+access-list outACL deny 0 255 any null null null any null null null -1 65523
