@@ -1,93 +1,114 @@
-# apkeep
+# APKeep
 
+APKeep is a data plane verification tool that checks network invariants for network updates.
+The work is published in the [NSDI'20 paper](https://www.usenix.org/conference/nsdi20/presentation/zhang-peng) "APKeep: Realtime Verification for Real Networks".
+This branch provides a prototype implementation of APKeep.
 
+## How to run APKeep
 
-## Getting started
+APKeep is a `Java` project and can be easily built by `Maven`.
+This branch is developed and tested under JDK 11 and Maven v3.9.6. 
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+### setup dataset
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+APKeep analyzes the network by taking input from several files in specific formats.
+Read [networks](networks/) to know the requirements of the input files.
+Make sure you prepare the necessary files before running APKeep.
 
-## Add your files
+### run APKeep
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+To build APKeep, simply run:
 
+```bash
+mvn package
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/reason1996/apkeep.git
-git branch -M main
-git push -uf origin main
+
+Then you can invoke APKeep in CLI:
+
+```bash
+java -jar target/apkeep-1.0.0.jar
 ```
 
-## Integrate with your tools
+APKeep provides several commands to analyze a network.
+First, initialize the network snapshot by specifying the folder that contains the required files, for example:
 
-- [ ] [Set up project integrations](https://gitlab.com/reason1996/apkeep/-/settings/integrations)
+```bash
+APKeep>init ../networks/stanford
+APKeep>
+```
 
-## Collaborate with your team
+Then, invoke the verification by specifying the file that contains the rule updates.
+You can also omit the parameter if the file is in the same folder as the initial snapshot, for example:
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+```bash
+APKeep>update
+The stanford dataset
+Number of updates: 9052
+Total time: 865ms
+Update PPM time: 605ms
+Check property time: 259ms
+Number of APs after insert: 515
+Number of APs after update: 2
+Number of loops: 20
+Average update time: 95.564us
+95.0287229341582% < 0.25ms
+Memory Usage: 0MB
+APKeep>
+```
 
-## Test and Deploy
+Finally, you can dump loops (if any) or run link failure tests to check the "what if" question, details can be found in the APKeep paper.
 
-Use the built-in continuous integration in GitLab.
+```bash
+APKeep>dump loops
+++++++++++++++++++++++++++++++
+loop found for [171.66.255.128/26]:
+bbra_rtr,te7/1 bbrb_rtr,te7/1 bbrb_rtr,te6/3 yozb_rtr,te1/1 yozb_rtr,te1/2 yoza_rtr,te1/2 yoza_rtr,te7/1 bbrb_rtr,te7/4 bbrb_rtr,te7/2 cozb_rtr,te2/1 cozb_rtr,te3/1 cozb_rtr_outACL_te3/1_out,inport cozb_rtr_outACL_te3/1_out,permit bbra_rtr,te6/1 bbra_rtr,te7/1
+++++++++++++++++++++++++++++++
+APKeep>
+```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## How to develop using APKeep
 
-***
+The source code of APKeep is in [src/main/java/](src/main/java/), which consists of three modules:
+> - `apkeep` is the main module that maintains PPM and verifier;
+> - `common` is imported from [AP Transformer](https://www.cs.utexas.edu/users/lam/NRL/), which wraps BDD operation on network packets;
+> - `JDD` is imported as a Maven dependency, which is an [open-source](https://bitbucket.org/vahidi/jdd/) BDD library for Java.
 
-# Editing this README
+To develop your own data plane verifier using APKeep, you might use or modify part of the source files.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### package core
 
-## Suggestions for a good README
+- **APKeeper** manages PPM, including the data structures of `port_aps` and `ap_ports`, as well as the algorithms updating PPM, such as `Split`, `Transfer`, and `Merge`.
+- **Network** manages `Element`s for network devices, also provides APIs to interact with input files.
+- **ChangeItem** defines the behavior change in the form of 3-tuple.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+### package element
 
-## Name
-Choose a self-explaining name for your project.
+- **Element** manages `aps` for each `port`, including the algorithm `EncodingRules`, `IdentifyChanges`, and `UpdatingPredicates`.
+- **ForwardElement** inherits Element and optimizes updating algorithms for IP forwarding rule using prefix trie tree.
+- **ACLElement** inherits Element and works on a prioritized acl rule list.
+- **NATElement** inherits Element and overwrites algorithms for updating `rewrite table`.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+### package checker
+- **Loop** defines the forwarding loop and records the relevant packets.
+- **ForwardingGraph** defines the forwarding graph for a set of `AP`s, including the nodes and ports holding such `ap`.
+- **Checker** implements the algorithms to check invariants, including `ConstructForwardingGraph`, `TraverseForwardingGraph`, and directly `TraversePPM` without constructing a forwarding graph.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+### the others
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+The other packages define some useful data structures during verification, please check the code for details.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+## For Researchers
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+To evaluate APKeep using the experiments from the NSDI paper, we provide [ExampleExp.java](src/main/java/apkeep/main/main.java).
+You can find part of the datasets in [networks](networks/).
 
 ## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Feel free to contact us if issues occur to you.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+- Peng Zhang (p-zhang@xjtu.edu.cn)
+- Xu Liu (x.liu.reason@outlook.com)
 
 ## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+APKeep is released under [license](LICENSE).

@@ -46,7 +46,6 @@ import java.util.*;
 
 import apkeep.utils.Parameters;
 import jdd.bdd.*;
-import jdd.bdd.debug.DebugBDD;
 
 /**
  * The true, false, bdd variables, the negation of bdd variables:
@@ -67,19 +66,19 @@ public class BDDACLWrapper implements Serializable{
       /**
        * the arrays store BDD variables.
        */
-      final static int protocolBits = 8;
+      public final static int protocolBits = 8;
       int[] protocol; //protocol[0] is the lowest bit
-      final static int portBits = 16;
+      public final static int portBits = 16;
       int[] srcPort;
       int[] dstPort;
-      final static int ipBits = 32;
+      public final static int ipBits = 32;
       int[] srcIP;
       int[] dstIP;
       int[] dstIPInner;
-      final static int mplsBits = 20;
+      public final static int mplsBits = 20;
       // mplsLabel[0] - least significant bit
       int[] mplsLabel;
-      final static int ip6Bits = 128;
+      public final static int ip6Bits = 128;
       int[] dstIP6;
 
       public int mplsLabelField;
